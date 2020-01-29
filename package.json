@@ -2,11 +2,15 @@
     "name": "nodehawk",
     "version": "0.0.0",
     "description": "A slim and hyper configurable watcher for Node.",
-    "main": "src/index.js",
+    "main": "lib/index.js",
+    "bin": {
+        "nodehawk": "bin/nodehawk"
+    },
     "repository": "git@github.com:samrith-s/nodehawk.git",
     "author": "Samrith Shankar <samrith.shankar@outlook.com>",
     "license": "MIT",
     "files": [
+        "bin",
         "lib",
         "package.json",
         "README.md",

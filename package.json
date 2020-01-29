@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "description": "A slim and hyper configurable watcher for Node.",
     "main": "src/index.js",
-    "repository": "git@github.com:samrith-s/watchnode.git",
+    "repository": "git@github.com:samrith-s/nodehawk.git",
     "author": "Samrith Shankar <samrith.shankar@outlook.com>",
     "license": "MIT",
     "files": [

@@ -1,7 +1,7 @@
 {
     "basePath": "./src",
     "root": ".",
-    "exec": "babel-node src/",
+    "exec": "echo No execution command specified!",
     "usePoll": false,
     "interval": 100,
     "binaryInterval": 300,

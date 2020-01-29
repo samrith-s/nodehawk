@@ -1,0 +1,17 @@
+{
+    "basePath": "./src",
+    "root": ".",
+    "exec": "babel-node src/",
+    "usePoll": false,
+    "interval": 100,
+    "binaryInterval": 300,
+    "display": {
+        "startMessage": ">>> STARTING <<<",
+        "restartMessage": ">>> RESTARTING <<<",
+        "stopMessage": ">>> STOPPING <<<"
+    },
+    "env": {
+        "PORT": 4000,
+        "NODE_ENV": "development"
+    }
+}

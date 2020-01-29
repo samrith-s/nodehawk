@@ -1,0 +1,11 @@
+{
+    "include": ["./src/index.ts"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "module": "commonjs",
+        "target": "es2017",
+        "outDir": "./lib",
+        "rootDir": "./src"
+    }
+}

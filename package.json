@@ -1,0 +1,42 @@
+{
+    "name": "nodehawk",
+    "version": "0.0.0",
+    "description": "A slim and hyper configurable watcher for Node.",
+    "main": "src/index.js",
+    "repository": "git@github.com:samrith-s/watchnode.git",
+    "author": "Samrith Shankar <samrith.shankar@outlook.com>",
+    "license": "MIT",
+    "files": [
+        "lib",
+        "package.json",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "prepublishOnly": "yarn build",
+        "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+        "create": "yarn build && yarn test",
+        "build": "tsc -p .",
+        "test": "echo No tests found as of now!",
+        "refresh": "rm -rf ./node_modules ./yarn.lock && yarn install"
+    },
+    "devDependencies": {
+        "@types/node": "^13.1.4",
+        "@typescript-eslint/eslint-plugin": "^2.15.0",
+        "@typescript-eslint/parser": "^2.15.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-import-resolver-typescript": "^2.0.0",
+        "eslint-plugin-import": "^2.19.1",
+        "eslint-plugin-json": "^2.0.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.2",
+        "nodemon": "^2.0.2",
+        "prettier": "^1.19.1",
+        "ts-node": "^8.5.4",
+        "typescript": "^3.7.4"
+    },
+    "dependencies": {
+        "rc": "^1.2.8"
+    }
+}

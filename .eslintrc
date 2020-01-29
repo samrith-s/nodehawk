@@ -12,7 +12,7 @@
     },
     "rules": {
         "import/no-extraneous-dependencies": [
-            2,
+            0,
             { "devDependencies": ["**/test.tsx", "**/test.ts"] }
         ],
         "@typescript-eslint/indent": [2, 4]

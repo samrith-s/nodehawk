@@ -1,11 +1,12 @@
 {
-    "basePath": "./src",
+    "paths": "./src",
     "root": ".",
     "exec": "echo No execution command specified!",
     "port": 4000,
-    "bufferInterval": 300,
     "ignored": "",
     "logLevel": 3,
+    "bufferInterval": 300,
+    "clearScreen": true,
     "watcher": {
         "usePolling": false,
         "interval": 100,

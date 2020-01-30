@@ -1,30 +1,25 @@
+import { WatchOptions } from "chokidar";
+
 export interface Config {
-    basePath: string | [string];
-    root: string;
-    exec: string;
-    port: number;
-    bufferInterval: number;
-    ignored: string;
-    logLevel: number;
-    watcher: {
-        usePolling: boolean;
-        interval: number;
-        binaryInterval: number;
-        followSymlinks: boolean;
-        disableGlobbing: boolean;
-    };
-    display: {
-        startMessage: string;
-        restartMessage: string;
-        stopMessage: string;
+    paths?: string | [string];
+    root?: string;
+    exec?: string;
+    port?: number;
+    ignored?: string;
+    logLevel?: number;
+    bufferInterval?: number;
+    clearScreen?: boolean;
+    watcher?: WatchOptions;
+    display?: {
+        startMessage?: string;
+        restartMessage?: string;
+        stopMessage?: string;
     };
 }
 
-export interface WatcherOptions {
+export interface WatcherListeners {
     onBeforeStart?: Function;
     onStart?: Function;
-    onBeforeRestart?: Function;
-    onRestart?: Function;
     onBeforeChange?: Function;
     onChange?: Function;
     onBeforeStop?: Function;

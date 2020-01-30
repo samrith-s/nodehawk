@@ -18,7 +18,7 @@
     ],
     "scripts": {
         "prepublishOnly": "yarn build",
-        "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+        "start": "tsc -w",
         "create": "yarn build && yarn test",
         "build": "tsc -p .",
         "test": "echo No tests found as of now!",

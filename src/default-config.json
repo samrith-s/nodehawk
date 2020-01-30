@@ -2,16 +2,20 @@
     "basePath": "./src",
     "root": ".",
     "exec": "echo No execution command specified!",
-    "usePoll": false,
-    "interval": 100,
-    "binaryInterval": 300,
-    "display": {
-        "startMessage": ">>> STARTING <<<",
-        "restartMessage": ">>> RESTARTING <<<",
-        "stopMessage": ">>> STOPPING <<<"
+    "port": 4000,
+    "bufferInterval": 300,
+    "ignored": "",
+    "logLevel": 3,
+    "watcher": {
+        "usePolling": false,
+        "interval": 100,
+        "binaryInterval": 300,
+        "followSymlinks": true,
+        "disableGlobbing": false
     },
-    "env": {
-        "PORT": 4000,
-        "NODE_ENV": "development"
+    "display": {
+        "startMessage": "Starting",
+        "restartMessage": "Restarting",
+        "stopMessage": "Stopping"
     }
 }

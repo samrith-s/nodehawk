@@ -66,3 +66,6 @@ typings/
 # Dist
 lib
 dist
+
+# ignoring package-lock.json
+package-lock.json

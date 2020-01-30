@@ -1,3 +1,4 @@
+import path from "path";
 import { cursorTo, clearScreenDown } from "readline";
 import rc from "rc";
 
@@ -26,6 +27,29 @@ export function processHandler(initial: boolean, restart: boolean): void {
 
     if (restart) {
         // do something
+    }
+}
+
+/**
+ * Returns a root-relative joined paths to with the supplied paths.
+ *
+ * @param {string} root A path string resolving to the root directory.
+ * @param {(string|string[])} paths A string or an array of paths to resolve with respect to root.
+ */
+export function generateBasePathRelativeToRoot(
+    root: string,
+    paths: string | string[]
+): string | string[] {
+    if (Array.isArray(paths)) {
+        return paths.reduce(
+            (updatedPaths: string[], currentPath: string): string[] => [
+                ...updatedPaths,
+                path.join(root, currentPath)
+            ],
+            []
+        );
+    } else {
+        return path.join(root, paths);
     }
 }
 

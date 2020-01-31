@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require("./lib")();
+const { Nodehawk } = new require("../lib/main");
+const nodehawk = new Nodehawk();
+console.log("Nodehawk running!");

@@ -2,12 +2,16 @@
     "include": ["./src/**/*.ts", "./src/**/*.json"],
     "exclude": ["node_modules"],
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": "src",
         "module": "commonjs",
         "target": "es2017",
-        "outDir": "./lib",
-        "rootDir": "./src",
+        "outDir": "lib",
+        "rootDir": "src",
+        "esModuleInterop": true,
         "resolveJsonModule": true,
-        "allowSyntheticDefaultImports": true
+        "inlineSourceMap": true,
+        "declaration": true,
+        "declarationDir": "lib/types",
+        "declarationMap": true
     }
 }

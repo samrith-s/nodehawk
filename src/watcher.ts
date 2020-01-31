@@ -1,9 +1,9 @@
 import chokidar, { FSWatcher } from "chokidar";
 import path from "path";
 
-import { Config, WatcherListeners } from "interfaces";
+import { Config, WatcherListeners } from "./interfaces";
 
-import { generateBasePathRelativeToRoot } from "utils";
+import { generateBasePathRelativeToRoot } from "./utils";
 
 /**
  * The base watcher class, that handles all file watches and fires events accordingly.

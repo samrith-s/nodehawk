@@ -15,6 +15,23 @@ export interface Config {
         restartMessage?: string;
         stopMessage?: string;
     };
+    /**
+     * These values have been added in the config to avoid our config validation failing.
+     * They are attached to the config by the `rc` package, which is used to load a merged
+     * version of .nodehawkrc and default config.
+     */
+    _?: object;
+    config?: string;
+    configs?: string[];
+}
+
+export interface Checks {
+    [key: string]: string[];
+}
+
+export interface ConfigAndChecks {
+    config: Config;
+    checks: Checks;
 }
 
 export interface WatcherListeners {

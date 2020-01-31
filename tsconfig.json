@@ -12,6 +12,6 @@
         "inlineSourceMap": true,
         "declaration": true,
         "declarationDir": "lib/types",
-        "declarationMap": true
+        "declarationMap": false
     }
 }

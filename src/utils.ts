@@ -51,6 +51,11 @@ export function getDefaultConfigAndChecks(): ConfigAndChecks {
     } as ConfigAndChecks;
 }
 
+/**
+ * Takes in a merged config, and checks if for each key, the value matches the required type specified in default config.
+ * @param {ConfigChecks} configAndChecks An object of extracted config values and their type checks.
+ */
+
 export function validateLoadedConfig(configAndChecks: ConfigAndChecks): void {
     const { config, checks } = configAndChecks;
 
@@ -120,23 +125,6 @@ export function validateLoadedConfig(configAndChecks: ConfigAndChecks): void {
  */
 export function loadConfiguration(defaultConfig: Config): Config {
     return rc("nodehawk", defaultConfig);
-}
-
-/**
- * Handles the cleanup and restart of the command executer.
- *
- * Kills the spawned process, kills the process running on the port to avoid conflicts and restarts a clean process.
- * @param {boolean} initial Determines if this is the first time the process is running.
- * @param {boolean} restart Determines if the process should restart after cleanup.
- */
-export function processHandler(initial: boolean, restart: boolean): void {
-    if (initial) {
-        // do something
-    }
-
-    if (restart) {
-        // do something
-    }
 }
 
 /**

@@ -1,5 +1,3 @@
-import chalk from "chalk";
-
 import { Config, LogLevels, LogPrefix } from "../interfaces";
 
 /**
@@ -9,7 +7,11 @@ import { Config, LogLevels, LogPrefix } from "../interfaces";
  */
 
 export class Logger {
+    /**
+     * The `Config` object provided to this instance.
+     */
     private config: Config;
+
     /**
      *
      * @param {Config} config Creates an instance of `Logger`.
@@ -26,33 +28,54 @@ export class Logger {
     private print(
         message: any | Array<any>,
         level?: LogLevels,
-        prefix?: LogPrefix
+        prefix?: string
     ): void {
-        if (level >= this.config.logLevel) {
+        if (level <= this.config.logLevel) {
             if (!Array.isArray(message)) {
-                console.log(chalk`[${prefix}] ${message}`);
+                console.log(prefix, message);
             } else {
-                console.log(chalk`[${prefix}] ${message.join(" ")}`);
+                console.log(prefix, ...message);
             }
         }
     }
 
+    /**
+     * Log a critical message. This exits the process.
+     * @param {any|any[]} message
+     */
     fatal(message: any | Array<any>): void {
         this.print(message, LogLevels.FATAL, LogPrefix.FATAL);
+        throw new Error(message);
     }
 
+    /**
+     * Logs a critical message. Does not exit the process.
+     * @param {any|any[]} message
+     */
     error(message: any | Array<any>): void {
         this.print(message, LogLevels.ERROR, LogPrefix.ERROR);
     }
 
+    /**
+     * Logs a warning. Used to highlight cause of problems.
+     * @param {any|any[]} message
+     */
     warn(message: any | Array<any>): void {
         this.print(message, LogLevels.WARN, LogPrefix.WARN);
     }
 
+    /**
+     * Logs an informative message. Useful for general logging purposes.
+     * @param {any|any[]} message
+     */
     info(message: any | Array<any>): void {
         this.print(message, LogLevels.INFO, LogPrefix.INFO);
     }
 
+    /**
+     * Logs all messages useful while debugging specially. Useful for providing more context to advanced users.
+     * @param {any|any[]} message
+     */
     debug(message: any | Array<any>): void {
         this.print(message, LogLevels.DEBUG, LogPrefix.DEBUG);
     }

@@ -1,4 +1,4 @@
-import { ConfigAndChecks, Checks } from "interfaces";
+import { ConfigAndChecks, Checks } from "../interfaces";
 
 import { Watcher } from "./Watcher";
 import { Provider } from "./Provider";

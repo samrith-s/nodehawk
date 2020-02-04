@@ -25,7 +25,8 @@
         "create": "yarn build && yarn test",
         "build": "rimraf lib/ && tsc -p .",
         "test": "echo No tests found as of now!",
-        "refresh": "rm -rf ./node_modules ./yarn.lock && yarn install"
+        "refresh": "rimraf ./node_modules ./yarn.lock && yarn install",
+        "lint": "eslint src/**/*.ts"
     },
     "devDependencies": {
         "@types/node": "^13.1.4",

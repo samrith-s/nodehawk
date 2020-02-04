@@ -25,6 +25,6 @@
         "**/*/lib": true
     },
     "files.associations": {
-        ".*rc": "json"
+        ".*rc": "jsonc"
     }
 }

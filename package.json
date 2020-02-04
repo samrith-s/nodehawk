@@ -49,6 +49,7 @@
     "dependencies": {
         "chokidar": "^3.3.1",
         "cli-cursor": "^3.1.0",
+        "flat": "^5.0.0",
         "kill-port": "^1.6.0",
         "ora": "^4.0.3",
         "rc": "^1.2.8"

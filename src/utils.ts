@@ -67,9 +67,8 @@ export function validateLoadedConfig(configAndChecks: ConfigAndChecks): void {
             return isVerified;
         }
 
-        console.log("check", check);
-
         if (
+            !configValue ||
             check.includes(typeof configValue) ||
             (check.includes("array") && Array.isArray(configValue))
         ) {
@@ -79,10 +78,13 @@ export function validateLoadedConfig(configAndChecks: ConfigAndChecks): void {
 
             if (arrayChecks.length) {
                 for (const arrayCheck of arrayChecks) {
-                    isVerified = configValue.every(
-                        (value: string) =>
-                            typeof value === arrayCheck.replace(/\[*\]*/g, "")
-                    );
+                    isVerified =
+                        !configValue ||
+                        configValue.every(
+                            (value: string) =>
+                                typeof value ===
+                                arrayCheck.replace(/\[*\]*/g, "")
+                        );
                 }
             }
         }

@@ -1,10 +1,4 @@
 <p align="center"><img src="https://raw.githubusercontent.com/samrith-s/nodehawk/master/assets/nodehawk.png" width="200"></p>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-![npm](https://img.shields.io/npm/v/nodehawk?label=Nodehawk)
-[![Build Status](https://travis-ci.com/samrith-s/nodehawk.svg?branch=master)](https://travis-ci.com/samrith-s/nodehawk)
 
 # Nodehawk
 
@@ -26,6 +20,10 @@ simple replace your `start` or `dev` script like so:
 }
 ```
 
+![npm](https://img.shields.io/npm/v/nodehawk?label=Nodehawk)
+[![Build Status](https://travis-ci.com/samrith-s/nodehawk.svg?branch=master)](https://travis-ci.com/samrith-s/nodehawk)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat)](#contributors)<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 ## Table of contents
 
 -   Why Nodehawk?
@@ -36,9 +34,10 @@ simple replace your `start` or `dev` script like so:
     -   Display
 -   Contributors
 
-## Contributors ✨
+## Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -51,6 +50,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!

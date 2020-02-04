@@ -34,11 +34,33 @@ export interface ConfigAndChecks {
     checks: Checks;
 }
 
-export interface WatcherListeners {
-    onBeforeStart?: Function;
-    onStart?: Function;
-    onBeforeChange?: Function;
-    onChange?: Function;
-    onBeforeStop?: Function;
-    onStop?: Function;
+export enum WatcherEvents {
+    onBeforeStart = "onBeforeStart",
+    onStart = "onStart",
+    onBeforeChange = "onBeforeChange",
+    onChange = "onChange",
+    onBeforeStop = "onBeforeStop",
+    onStop = "onStop"
+}
+
+export type WatcherEvent = keyof typeof WatcherEvents;
+
+export type WatcherListeners = {
+    [event in WatcherEvent]?: Function;
+};
+
+export enum LogLevels {
+    FATAL = 0,
+    ERROR = 1,
+    WARN = 2,
+    INFO = 3,
+    DEBUG = 4
+}
+
+export enum LogPrefix {
+    FATAL = "fatal",
+    ERROR = "error",
+    WARN = "warn",
+    INFO = "info",
+    DEBUG = "debug"
 }

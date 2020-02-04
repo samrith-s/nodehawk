@@ -47,9 +47,11 @@ export class Watcher extends Provider {
         const { paths, root, watcher } = this.config;
 
         this.paths = generateBasePathRelativeToRoot(
-            path.join(__dirname, "../", root),
+            path.join(process.cwd(), root),
             paths
         );
+
+        this.log.debug(["Generated paths for watching", this.paths]);
 
         this.instance = chokidar.watch(this.paths, {
             ...watcher,

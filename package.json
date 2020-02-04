@@ -2,15 +2,18 @@
     "name": "nodehawk",
     "version": "0.0.0",
     "description": "A slim and hyper configurable watcher for Node.",
+    "author": "Samrith Shankar <samrith.shankar@outlook.com>",
+    "license": "MIT",
+    "repository": "git@github.com:samrith-s/nodehawk.git",
+    "preferGlobal": true,
     "main": "./lib/index.js",
     "types": "./lib/types/index.d.ts",
     "bin": {
         "nodehawk": "./bin/nodehawk.js"
     },
-    "preferGlobal": true,
-    "repository": "git@github.com:samrith-s/nodehawk.git",
-    "author": "Samrith Shankar <samrith.shankar@outlook.com>",
-    "license": "MIT",
+    "engines": {
+        "node": ">=10.0.0"
+    },
     "files": [
         "bin",
         "lib",

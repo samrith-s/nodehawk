@@ -51,7 +51,7 @@ export class Watcher extends Provider {
             paths
         );
 
-        this.log.debug(["Generated paths for watching", this.paths]);
+        this.log.debug("Generated paths for watching", this.paths);
 
         this.instance = chokidar.watch(this.paths, {
             ...watcher,

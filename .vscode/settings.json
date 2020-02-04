@@ -23,5 +23,8 @@
         "**/bower_components": true,
         "**/*.code-search": true,
         "**/*/lib": true
+    },
+    "files.associations": {
+        ".*rc": "json"
     }
 }

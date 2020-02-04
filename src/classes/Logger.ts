@@ -2,21 +2,20 @@ import chalk from "chalk";
 
 import { Config, LogLevels, LogPrefix } from "../interfaces";
 
-import { Provider } from "./Provider";
-
 /**
  * A logger function which only logs only is the level of the message is greater than
  * or equal to the log level specificd in the config. Strings support Chalk template literals.
  * @param {Config} config The application config object generated at runtime.
  */
 
-export class Logger extends Provider {
+export class Logger {
+    private config: Config;
     /**
      *
      * @param {Config} config Creates an instance of `Logger`.
      */
     constructor(config: Config) {
-        super(config);
+        this.config = config;
     }
 
     /**

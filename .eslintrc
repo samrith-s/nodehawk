@@ -15,6 +15,7 @@
             0,
             { "devDependencies": ["**/test.tsx", "**/test.ts"] }
         ],
-        "@typescript-eslint/indent": [2, 4]
+        "@typescript-eslint/indent": [2, 4],
+        "@typescript-eslint/no-explicit-any": 0
     }
 }

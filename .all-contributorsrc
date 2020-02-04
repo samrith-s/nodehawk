@@ -1,0 +1,26 @@
+{
+  "projectName": "nodehawk",
+  "projectOwner": "samrith-s",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 50,
+  "contributors": [
+    {
+      "login": "samrith-s",
+      "name": "Samrith Shankar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9032162?v=4",
+      "profile": "https://github.com/samrith-s",
+      "contributions": [
+        "code",
+        "doc",
+        "maintenance",
+        "review"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "commitConvention": "none"
+}

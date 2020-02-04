@@ -1,23 +1,28 @@
-import { Config, ConfigAndChecks, Checks } from "interfaces";
+import { ConfigAndChecks, Checks } from "interfaces";
 
-import { Watcher } from "watcher";
+import { Watcher } from "./Watcher";
+import { Provider } from "./Provider";
+
 import {
     loadConfiguration,
     getDefaultConfigAndChecks,
     validateLoadedConfig
-} from "./utils";
+} from "../utils";
 
 /**
  * The entry Nodehawk class.
  */
-export class Nodehawk {
+export class Nodehawk extends Provider {
     private watcher: Watcher;
-    private config: Config;
     private checks: Checks;
 
+    /**
+     * Create an instance of Nodehawk which
+     */
     constructor() {
         const { config, checks }: ConfigAndChecks = getDefaultConfigAndChecks();
-        this.config = loadConfiguration(config);
+        super(loadConfiguration(config));
+
         this.checks = checks;
 
         validateLoadedConfig({ config: this.config, checks: this.checks });

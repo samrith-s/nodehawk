@@ -1,4 +1,5 @@
 import { WatchOptions } from "chokidar";
+import chalk from "chalk";
 
 export interface Config {
     paths?: string | [string];
@@ -35,12 +36,12 @@ export interface ConfigAndChecks {
 }
 
 export enum WatcherEvents {
-    onBeforeStart = "onBeforeStart",
-    onStart = "onStart",
-    onBeforeChange = "onBeforeChange",
-    onChange = "onChange",
-    onBeforeStop = "onBeforeStop",
-    onStop = "onStop"
+    onBeforeStart = "ON_BEFORE_START",
+    onStart = "ON_START",
+    onBeforeChange = "ON_BEFORE_CHANGE",
+    onChange = "ON_CHANGE",
+    onBeforeStop = "ON_BEFORE_STOP",
+    onStop = "ON_STOP"
 }
 
 export type WatcherEvent = keyof typeof WatcherEvents;
@@ -57,10 +58,10 @@ export enum LogLevels {
     DEBUG = 4
 }
 
-export enum LogPrefix {
-    FATAL = "fatal",
-    ERROR = "error",
-    WARN = "warn",
-    INFO = "info",
-    DEBUG = "debug"
-}
+export const LogPrefix = {
+    FATAL: chalk.red.bold("[fatal]"),
+    ERROR: chalk.red.bold("[error]"),
+    WARN: chalk.yellow.bold("[warn]"),
+    INFO: chalk.cyan.bold("[info]"),
+    DEBUG: chalk.white.bold("[debug]")
+};

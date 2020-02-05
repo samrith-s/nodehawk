@@ -58,7 +58,8 @@ export function checkConfig(config: Config): ConfigCheck {
         const arrayTypes: string[] = availableTypes.filter(type =>
             /\[*\]/.test(type)
         );
-        const providedType: string = typeof entryValue;
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        const providedType: string = resolveTypeof(entryValue);
 
         if (
             !availableTypes.includes(providedType) ||
@@ -115,4 +116,20 @@ export function clearScreen(): void {
     console.log(blank);
     cursorTo(process.stdout, 0, 0);
     clearScreenDown(process.stdout);
+}
+
+export function resolveTypeof(value: any): string {
+    if (Array.isArray(value)) {
+        return "array";
+    }
+
+    if (typeof value === "object" && value instanceof RegExp) {
+        return "regexp";
+    }
+
+    if (typeof value === "undefined" || value === null) {
+        return "undefined";
+    }
+
+    return typeof value;
 }

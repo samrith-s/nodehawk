@@ -12,9 +12,11 @@ export interface Config {
     clearScreen?: boolean;
     watcher?: WatchOptions;
     display?: {
-        startMessage?: string;
-        restartMessage?: string;
-        stopMessage?: string;
+        onBeforeStart?: string;
+        onStart?: string;
+        onBeforeRestart?: string;
+        onRestart?: string;
+        onBeforeStop?: string;
     };
     /**
      * These values have been added in the config to avoid our config validation failing.

@@ -57,6 +57,10 @@ export default {
     "watcher.depth": {
         type: "number|undefined"
     },
+    "watcher.alwaysStat": {
+        type: "boolean",
+        default: false
+    },
     "watcher.awaitWriteFinish": {
         type: "boolean|number|object",
         default: false

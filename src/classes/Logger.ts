@@ -40,8 +40,7 @@ export class Logger {
      * @argument {any|any[]} messages
      */
     fatal<IArguments>(...messages: any | Array<any>): void {
-        this.print(messages, LogLevels.FATAL, LogPrefix.FATAL);
-        throw new Error(messages);
+        throw new Error([LogPrefix.FATAL, messages].join(" "));
     }
 
     /**

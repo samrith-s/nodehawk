@@ -10,15 +10,19 @@ observes your directories and files for changes, and triggers rebuilds to make
 Node application developments hassle-free. Supports every NodeJS framework.
 
 Nodehawk is a self-contained package, and does not require any additional
-dependencies to run. Simply create a `.nodehawkrc` file with your values. Then
-just run `nodehawk`.
+dependencies to run. Just run `nodehawk` in your project folder.
 
-This project is inspired by the fantastic [Nodemon](https://nodemon.io) and uses
-[Chokidar](https://github.com/paulmillr/chokidar) under the hood.
+This project is inspired by the fantastic
+[Nodemon](https://nodemon.io?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
+and uses
+[Chokidar](https://github.com/paulmillr/chokidar?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
+under the hood. Thanks to
+[Freepik](https://www.freepik.com?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
+for the icon.
 
 ![npm](https://img.shields.io/npm/v/nodehawk?label=Nodehawk)
 [![Build Status](https://travis-ci.com/samrith-s/nodehawk.svg?branch=master)](https://travis-ci.com/samrith-s/nodehawk)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -46,7 +50,10 @@ providing a watcher that addresses
 
 ## Installation and usage
 
-There are two ways to use this. Either install it globally using NPM:
+There are two ways to use this. Either install it globally or add it as a
+development dependency.
+
+Installing globally using NPML
 
 ```bash
 npm i -g nodehawk
@@ -58,13 +65,13 @@ or with Yarn:
 yarn global add global nodehawk
 ```
 
-Add the package as a `devDependency` to your project, using NPM:
+Adding the package as a dev dependency to your project with NPM:
 
 ```bash
 npm i -D nodehawk
 ```
 
-or using Yarn:
+or with Yarn:
 
 ```bash
 yarn add -D nodehawk
@@ -89,7 +96,7 @@ For using the watcher, simple add a script to your `package.json`:
 ```
 
 > This will help Nodehawk kill the process running on the port to prevent any
-> `EADDRINUSE` errors.
+> `EADDRINUSE` errors. You can customize the port in the configurations below.
 
 The watcher will run with the default configurations, and automatically start
 watching your `src` directory. If you want to customize it further, you can read
@@ -98,7 +105,8 @@ in the root of your project alongside `package.json`.
 
 ## Configurations
 
-Nodehawk allows a rich variety of configuration options, to suit your needs.
+Nodehawk allows a rich variety of configuration options, to suit your needs. All
+of these configurations are provided through a `.nodehawkrc` file.
 
 ### Basic
 

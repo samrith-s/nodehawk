@@ -17,7 +17,7 @@ This project is inspired by the fantastic
 and uses
 [Chokidar](https://github.com/paulmillr/chokidar?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
 under the hood. Thanks to
-[Freepik](https://www.freepik.com?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral).
+[Freepik](https://www.freepik.com?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral) for the icon.
 
 ![npm](https://img.shields.io/npm/v/nodehawk?label=Nodehawk)
 [![Build Status](https://travis-ci.com/samrith-s/nodehawk.svg?branch=master)](https://travis-ci.com/samrith-s/nodehawk)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -49,7 +49,9 @@ providing a watcher that addresses
 
 ## Installation and usage
 
-There are two ways to use this. Either install it globally using NPM:
+There are two ways to use this. Either install it globally or add it as a development dependency.
+
+Installing globally using NPM
 
 ```bash
 npm i -g nodehawk
@@ -61,13 +63,13 @@ or with Yarn:
 yarn global add global nodehawk
 ```
 
-Add the package as a `devDependency` to your project, using NPM:
+Adding the package as a dev dependency to your project with NPM:
 
 ```bash
 npm i -D nodehawk
 ```
 
-or using Yarn:
+or with Yarn:
 
 ```bash
 yarn add -D nodehawk

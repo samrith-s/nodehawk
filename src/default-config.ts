@@ -55,7 +55,7 @@ export default {
         default: false
     },
     "watcher.depth": {
-        type: "number"
+        type: "number|undefined"
     },
     "watcher.awaitWriteFinish": {
         type: "boolean|number|object",
@@ -70,8 +70,7 @@ export default {
 
     // display
     display: {
-        type: "object",
-        default: {}
+        type: "object"
     },
     "display.startMessage": {
         type: "string",

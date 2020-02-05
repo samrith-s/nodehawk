@@ -10,11 +10,14 @@ observes your directories and files for changes, and triggers rebuilds to make
 Node application developments hassle-free. Supports every NodeJS framework.
 
 Nodehawk is a self-contained package, and does not require any additional
-dependencies to run. Simply create a `.nodehawkrc` file with your values. Then
-just run `nodehawk`.
+dependencies to run. Just run `nodehawk` in your project folder.
 
-This project is inspired by the fantastic [Nodemon](https://nodemon.io) and uses
-[Chokidar](https://github.com/paulmillr/chokidar) under the hood.
+This project is inspired by the fantastic
+[Nodemon](https://nodemon.io?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
+and uses
+[Chokidar](https://github.com/paulmillr/chokidar?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
+under the hood. Thanks to
+[Freepik](https://www.freepik.com?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral).
 
 ![npm](https://img.shields.io/npm/v/nodehawk?label=Nodehawk)
 [![Build Status](https://travis-ci.com/samrith-s/nodehawk.svg?branch=master)](https://travis-ci.com/samrith-s/nodehawk)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->

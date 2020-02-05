@@ -44,7 +44,7 @@ export class Watcher extends Provider {
      */
     constructor(config: Config) {
         super(config);
-        const { paths, root, watcher } = this.config;
+        const { paths, root, ignored, watcher } = this.config;
 
         this.paths = generateBasePathRelativeToRoot(
             path.join(process.cwd(), root),
@@ -55,6 +55,7 @@ export class Watcher extends Provider {
 
         this.instance = chokidar.watch(this.paths, {
             ...watcher,
+            ignored,
             persistent: true,
             ignoreInitial: true
         });

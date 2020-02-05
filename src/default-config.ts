@@ -76,17 +76,25 @@ export default {
     display: {
         type: "object"
     },
-    "display.startMessage": {
+    "display.onBeforeStart": {
         type: "string",
-        default: "Starting"
+        default: "Starting..."
     },
-    "display.restartMessage": {
+    "display.onStart": {
         type: "string",
-        default: "Restarting"
+        default: "Started"
     },
-    "display.stopMessage": {
+    "display.onBeforeRestart": {
         type: "string",
-        default: "Stopping"
+        default: "Restarting..."
+    },
+    "display.onRestart": {
+        type: "string",
+        default: "Restarting..."
+    },
+    "display.onBeforeStop": {
+        type: "string",
+        default: "Stopping..."
     },
     clearScreen: {
         type: "boolean",

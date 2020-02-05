@@ -17,11 +17,12 @@ This project is inspired by the fantastic
 and uses
 [Chokidar](https://github.com/paulmillr/chokidar?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
 under the hood. Thanks to
-[Freepik](https://www.freepik.com?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral) for the icon.
+[Freepik](https://www.freepik.com?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
+for the icon.
 
 ![npm](https://img.shields.io/npm/v/nodehawk?label=Nodehawk)
 [![Build Status](https://travis-ci.com/samrith-s/nodehawk.svg?branch=master)](https://travis-ci.com/samrith-s/nodehawk)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -49,9 +50,10 @@ providing a watcher that addresses
 
 ## Installation and usage
 
-There are two ways to use this. Either install it globally or add it as a development dependency.
+There are two ways to use this. Either install it globally or add it as a
+development dependency.
 
-Installing globally using NPM
+Installing globally using NPML
 
 ```bash
 npm i -g nodehawk
@@ -94,7 +96,7 @@ For using the watcher, simple add a script to your `package.json`:
 ```
 
 > This will help Nodehawk kill the process running on the port to prevent any
-> `EADDRINUSE` errors.
+> `EADDRINUSE` errors. You can customize the port in the configurations below.
 
 The watcher will run with the default configurations, and automatically start
 watching your `src` directory. If you want to customize it further, you can read
@@ -103,7 +105,8 @@ in the root of your project alongside `package.json`.
 
 ## Configurations
 
-Nodehawk allows a rich variety of configuration options, to suit your needs.
+Nodehawk allows a rich variety of configuration options, to suit your needs. All
+of these configurations are provided through a `.nodehawkrc` file.
 
 ### Basic
 

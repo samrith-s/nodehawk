@@ -1,132 +1,87 @@
 import path from "path";
 import { cursorTo, clearScreenDown } from "readline";
 import rc from "rc";
+import flatten, { unflatten } from "flat";
 
-import { Config, ConfigAndChecks } from "./interfaces";
+import {
+    Config,
+    ConfigValue,
+    ConfigDefault,
+    ConfigFlat,
+    ConfigCheck
+} from "./interfaces";
 
-import DEFAULT_CONFIG from "./default-config.json";
+import DEFAULT_CONFIG from "./default-config";
 
 /**
- * Recursively strips the `Config` of `type` and `default` and resolves it to a sane default config matching the interface.
- *
- * Returns an object with `Config` and checks for validation against it.
+ * Loads a configuration object. Merging .nodehawkrc (if it exists) and the default configuration file. Otherwise returns the default configuration.
  */
-export function getDefaultConfigAndChecks(): ConfigAndChecks {
-    function runConfigAccumulator(valueKey: string, entry?: object): object {
-        const object: object = entry || DEFAULT_CONFIG;
-        return Object.entries(object).reduce(
-            (accumulator, [key, value]: [string, any]) => {
-                accumulator[key] =
-                    typeof object[key].default === "object"
-                        ? runConfigAccumulator(valueKey, object[key].default)
-                        : valueKey === "type"
-                        ? value?.[valueKey].split("|")
-                        : value?.[valueKey];
+export function loadConfiguration(): Config {
+    const defaultConfig: Config = unflatten(
+        Object.entries(DEFAULT_CONFIG).reduce<ConfigFlat>(function(
+            flatConfig: ConfigFlat,
+            [key, value]: [string, ConfigDefault]
+        ): ConfigFlat {
+            return {
+                ...flatConfig,
+                [key]: value.default
+            };
+        },
+        {} as ConfigFlat)
+    ) as Config;
 
-                return accumulator;
-            },
-            {}
+    return rc("nodehawk", defaultConfig) as Config;
+}
+
+/**
+ * Checks whether the configuration object types match the ones expected.
+ * @param {Config} config The configuration object to check.
+ */
+export function checkConfig(config: Config): ConfigCheck {
+    const configFlat: ConfigFlat = flatten(config);
+    const entries: [string, ConfigValue][] = Object.entries(configFlat);
+
+    for (const entry of entries) {
+        const [key, entryValue]: [string, ConfigValue] = entry;
+        const defaultValueObject: ConfigDefault = DEFAULT_CONFIG[key];
+
+        if (!defaultValueObject) {
+            return {
+                success: false,
+                keyError: true,
+                key
+            };
+        }
+
+        const { type: desiredType }: ConfigDefault = defaultValueObject;
+        const availableTypes: string[] = desiredType.split("|");
+        const arrayTypes: string[] = availableTypes.filter(type =>
+            /\[*\]/.test(type)
         );
-    }
+        const providedType: string = typeof entryValue;
 
-    function runChecksAccumulator(
-        accumulator: object = {},
-        entry?: object
-    ): object {
-        const object: object = entry || DEFAULT_CONFIG;
-        Object.entries(object).forEach(([key, value]: [string, any]) => {
-            accumulator[key] = value?.type.split("|");
-
-            if (typeof object[key].default === "object") {
-                runChecksAccumulator(accumulator, object[key].default);
-            }
-        });
-
-        return accumulator;
+        if (
+            !availableTypes.includes(providedType) ||
+            (Array.isArray(entryValue) &&
+                !arrayTypes.some(arrayType => {
+                    entryValue.every(
+                        value =>
+                            typeof value === arrayType.replace(/\[|\]/g, "")
+                    );
+                }))
+        ) {
+            return {
+                success: false,
+                key,
+                desiredType,
+                providedType
+            };
+        }
     }
 
     return {
-        config: runConfigAccumulator("default"),
-        checks: runChecksAccumulator()
-    } as ConfigAndChecks;
-}
-
-/**
- * Takes in a merged config, and checks if for each key, the value matches the required type specified in default config.
- * @param {ConfigChecks} configAndChecks An object of extracted config values and their type checks.
- */
-
-export function validateLoadedConfig(configAndChecks: ConfigAndChecks): void {
-    const { config, checks } = configAndChecks;
-
-    function checker(key: string, configValue: any): boolean {
-        const check: string[] = checks[key];
-        let isVerified = false;
-
-        if (!check) {
-            return isVerified;
-        }
-
-        if (
-            !configValue ||
-            check.includes(typeof configValue) ||
-            (check.includes("array") && Array.isArray(configValue))
-        ) {
-            isVerified = true;
-        } else {
-            const arrayChecks = check.filter(c => /\[/.test(c));
-
-            if (arrayChecks.length) {
-                for (const arrayCheck of arrayChecks) {
-                    isVerified =
-                        !configValue ||
-                        configValue.every(
-                            (value: string) =>
-                                typeof value ===
-                                arrayCheck.replace(/\[*\]*/g, "")
-                        );
-                }
-            }
-        }
-
-        return isVerified;
-    }
-
-    function runChecker(currentConfig?: object): void {
-        const configObj = currentConfig || config;
-
-        for (const key in configObj) {
-            if (!checker(key, configObj[key])) {
-                if (checks[key]) {
-                    throw new Error(
-                        [
-                            key,
-                            "expected of type",
-                            `'${checks[key].join(" | ")}'`,
-                            "got",
-                            `'${typeof configObj[key]}'`
-                        ].join(" ")
-                    );
-                }
-
-                throw new Error(key + " is not a valid key in the config.");
-            } else if (
-                typeof configObj[key] === "object" &&
-                !Array.isArray(configObj[key])
-            ) {
-                runChecker(configObj[key]);
-            }
-        }
-    }
-
-    runChecker();
-}
-
-/**
- * Returns the loaded configuration object. Either from a .nodehawkrc or the default configuration file.
- */
-export function loadConfiguration(defaultConfig: Config): Config {
-    return rc("nodehawk", defaultConfig);
+        success: true
+    };
 }
 
 /**

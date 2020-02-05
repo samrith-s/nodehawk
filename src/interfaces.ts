@@ -26,13 +26,29 @@ export interface Config {
     configs?: string[];
 }
 
-export interface Checks {
-    [key: string]: string[];
+export type ConfigValue =
+    | string
+    | string[]
+    | number
+    | number[]
+    | boolean
+    | boolean[];
+
+export interface ConfigFlat {
+    [key: string]: ConfigValue;
 }
 
-export interface ConfigAndChecks {
-    config: Config;
-    checks: Checks;
+export interface ConfigDefault {
+    type: string;
+    default: ConfigValue;
+}
+
+export interface ConfigCheck {
+    success: boolean;
+    keyError?: boolean;
+    key?: string;
+    desiredType?: string;
+    providedType?: string;
 }
 
 export enum WatcherEvents {

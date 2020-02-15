@@ -77,9 +77,9 @@ export enum LogLevels {
 }
 
 export const LogPrefix = {
-    FATAL: chalk.red.bold("[fatal]"),
+    FATAL: chalk.redBright.bold("[fatal]"),
     ERROR: chalk.red.bold("[error]"),
     WARN: chalk.yellow.bold("[warn]"),
     INFO: chalk.cyan.bold("[info]"),
-    DEBUG: chalk.white.bold("[debug]")
+    DEBUG: chalk.grey.bold("[debug]")
 };

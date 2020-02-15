@@ -1,12 +1,14 @@
 import { Watcher } from "./Watcher";
 import { Provider } from "./Provider";
 
+import { Config, ConfigCheck, WatcherListeners } from "interfaces";
+
 import {
     loadConfiguration,
     checkConfig,
-    assignEnvironmentVariables
+    assignEnvironmentVariables,
+    clearScreen
 } from "../utils";
-import { Config, ConfigCheck, WatcherListeners } from "interfaces";
 
 /**
  * Nodehawk is a hyper configurable watcher for all of your Node server development needs.
@@ -49,6 +51,10 @@ export class Nodehawk extends Provider {
             desiredType,
             providedType
         }: ConfigCheck = checkConfig(this.config);
+
+        if (this.config.clearScreen) {
+            clearScreen();
+        }
 
         if (!success) {
             if (keyError) {

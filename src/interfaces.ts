@@ -1,4 +1,3 @@
-import { WatchOptions } from "chokidar";
 import chalk from "chalk";
 
 export interface Config {
@@ -10,13 +9,15 @@ export interface Config {
     logLevel?: number;
     bufferInterval?: number;
     clearScreen?: boolean;
-    watcher?: WatchOptions;
     display?: {
         onBeforeStart?: string;
         onStart?: string;
         onBeforeRestart?: string;
         onRestart?: string;
         onBeforeStop?: string;
+    };
+    env?: {
+        [key: string]: string | number | boolean;
     };
     /**
      * These values have been added in the config to avoid our config validation failing.

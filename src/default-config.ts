@@ -30,47 +30,6 @@ export default {
         type: "number",
         default: 300
     },
-    watcher: {
-        type: "object",
-        default: {}
-    },
-    "watcher.usePolling": {
-        type: "boolean",
-        default: false
-    },
-    "watcher.interval": {
-        type: "number",
-        default: 100
-    },
-    "watcher.binaryInterval": {
-        type: "number",
-        default: 300
-    },
-    "watcher.followSymlinks": {
-        type: "boolean",
-        default: true
-    },
-    "watcher.disableGlobbing": {
-        type: "boolean",
-        default: false
-    },
-    "watcher.depth": {
-        type: "number|undefined"
-    },
-    "watcher.alwaysStat": {
-        type: "boolean",
-        default: false
-    },
-    "watcher.awaitWriteFinish": {
-        type: "boolean|number|object",
-        default: false
-    },
-    "watcher.awaitWriteFinish.stabilityThreshold": {
-        type: "number"
-    },
-    "watcher.awaitWriteFinish.pollInterval": {
-        type: "number"
-    },
 
     // display
     display: {
@@ -90,7 +49,7 @@ export default {
     },
     "display.onRestart": {
         type: "string|boolean",
-        default: "Restarting..."
+        default: "Restarted"
     },
     "display.onBeforeStop": {
         type: "string|boolean",
@@ -99,5 +58,9 @@ export default {
     clearScreen: {
         type: "boolean",
         default: true
+    },
+    env: {
+        type: "object",
+        default: {}
     }
 };

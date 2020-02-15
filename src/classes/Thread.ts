@@ -1,4 +1,5 @@
 import { spawn, ChildProcessWithoutNullStreams } from "child_process";
+import cliCursor from "cli-cursor";
 import killPort from "kill-port";
 
 import { Config } from "../interfaces";
@@ -65,7 +66,6 @@ export class Thread extends Provider {
      */
     private async killPort(): Promise<void> {
         try {
-            this.log.debug(this.config.port);
             await killPort(this.config.port);
             this.log.debug(
                 `Process running on port ${this.config.port} killed.`
@@ -81,11 +81,12 @@ export class Thread extends Provider {
      * @param {boolean} [restart] Whether this is a restart or not.
      */
     public async start(root: string, restart = false): Promise<void> {
-        if (this.config.clearScreen) {
+        if (restart && this.config.clearScreen) {
             clearScreen();
         }
 
         await this.killPort();
+
         if (restart) {
             await this.killProcess();
         }
@@ -106,12 +107,14 @@ export class Thread extends Provider {
             this.display.onStart();
         }
 
-        console.log("");
-
         this.childProcess.stdout.on("data", chunk => {
+            cliCursor.hide();
             console.log(chunk.toString());
         });
-        this.childProcess.stderr.on("data", console.log);
+        this.childProcess.stderr.on("data", error => {
+            cliCursor.hide();
+            console.error(error);
+        });
     }
 
     /**

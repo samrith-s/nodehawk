@@ -1,4 +1,4 @@
-import chokidar, { FSWatcher } from "chokidar";
+import Chokidar, { FSWatcher } from "chokidar";
 import path from "path";
 
 import {
@@ -42,9 +42,9 @@ export class Watcher extends Provider {
      * @param {Config} config The base configuration for the watcher.
      * @param {WatcherListeners} [listeners] Optional listeners than can be passed to run custom functions before or after emitted events.
      */
-    constructor(config: Config) {
+    constructor(config: Config, listeners: WatcherListeners) {
         super(config);
-        const { paths, root, ignored, watcher } = this.config;
+        const { paths, root, ignored = undefined, watcher } = this.config;
 
         this.paths = generateBasePathRelativeToRoot(
             path.join(process.cwd(), root),
@@ -53,15 +53,27 @@ export class Watcher extends Provider {
 
         this.log.debug("Generated paths for watching", this.paths);
 
-        this.instance = chokidar.watch(this.paths, {
-            ...watcher,
-            ignored,
-            persistent: true,
-            ignoreInitial: true
-        });
+        /**
+         * The raw chokidar instance which watches for changes and fires events.
+         */
+        try {
+            this.instance = Chokidar.watch(this.paths, {
+                ...watcher,
+                ignored,
+                persistent: true,
+                ignoreInitial: true
+            });
+        } catch (error) {
+            throw error;
+        }
 
+        /**
+         * Start an instance of process handler, which manages the spawned process.
+         */
         this.processHandler = new ProcessHandler(this.config);
     }
+
+    private eventManager() {}
 
     /**
      * Allows attaching a handler to an watcher event. Does not attach event if `event` is not valid.
@@ -70,7 +82,9 @@ export class Watcher extends Provider {
      */
     public on(event: WatcherEvent, eventHandler: Function): void {
         if (!WatcherEvents.hasOwnProperty(event)) {
-            this.log.warn(`Event ${event} is not valid. Handler not attached.`);
+            this.log.warn(
+                `Event '${event}' is not valid. Handler not attached.`
+            );
         } else {
             this.listeners[event] = eventHandler;
         }

@@ -2,7 +2,7 @@ import { Watcher } from "./Watcher";
 import { Provider } from "./Provider";
 
 import { loadConfiguration, checkConfig } from "../utils";
-import { ConfigCheck } from "interfaces";
+import { Config, ConfigCheck, WatcherListeners } from "interfaces";
 
 /**
  * Nodehawk is a hyper configurable watcher for all of your Node server development needs.
@@ -18,21 +18,24 @@ export class Nodehawk extends Provider {
     /**
      * Create an instance of `Nodehawk` which reads the configuration file and spawns a watcher to execute commands.
      */
-    constructor() {
+    constructor(userConfig?: Config, watcherListeners?: WatcherListeners) {
         const {
             config: configPath,
             configs: configsPath,
             _,
             ...config
         } = loadConfiguration();
-        super(config);
+        super({
+            ...config,
+            ...userConfig
+        });
         const {
             success,
             key,
             keyError,
             desiredType,
             providedType
-        }: ConfigCheck = checkConfig(config);
+        }: ConfigCheck = checkConfig(this.config);
 
         if (!success) {
             if (keyError) {
@@ -53,8 +56,11 @@ export class Nodehawk extends Provider {
                 ? `Configuration loaded from ${configPath}`
                 : "No configuration found. Using default configurations."
         );
-        // this.log.debug("Configuration verified.");
+        this.log.debug("Configuration verified.");
 
-        // this.watcher = new Watcher(this.config);
+        /**
+         * Create an instance of the watcher. This also starts the watch server.
+         */
+        this.watcher = new Watcher(this.config, watcherListeners);
     }
 }

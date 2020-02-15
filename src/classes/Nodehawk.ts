@@ -1,7 +1,11 @@
 import { Watcher } from "./Watcher";
 import { Provider } from "./Provider";
 
-import { loadConfiguration, checkConfig } from "../utils";
+import {
+    loadConfiguration,
+    checkConfig,
+    assignEnvironmentVariables
+} from "../utils";
 import { Config, ConfigCheck, WatcherListeners } from "interfaces";
 
 /**
@@ -13,22 +17,31 @@ import { Config, ConfigCheck, WatcherListeners } from "interfaces";
  * ```
  */
 export class Nodehawk extends Provider {
+    /**
+     * Instance of `Watcher` created for this instance.
+     */
     private watcher: Watcher;
 
     /**
      * Create an instance of `Nodehawk` which reads the configuration file and spawns a watcher to execute commands.
+     * @param {Config} [userConfig] Part of a custom config, to override defaults. Useful while running Nodehawk programmatically.
+     * @param {WatcherListeners} [watcherListeners] A list of custom listeners to run against certain events.
      */
     constructor(userConfig?: Config, watcherListeners?: WatcherListeners) {
+        userConfig = userConfig ?? {};
+
         const {
             config: configPath,
             configs: configsPath,
             _,
             ...config
         } = loadConfiguration();
+
         super({
             ...config,
             ...userConfig
         });
+
         const {
             success,
             key,
@@ -57,6 +70,8 @@ export class Nodehawk extends Provider {
                 : "No configuration found. Using default configurations."
         );
         this.log.debug("Configuration verified.");
+
+        assignEnvironmentVariables(this.config);
 
         /**
          * Create an instance of the watcher. This also starts the watch server.

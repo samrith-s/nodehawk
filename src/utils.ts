@@ -118,6 +118,10 @@ export function clearScreen(): void {
     clearScreenDown(process.stdout);
 }
 
+/**
+ * Resolve the type from string, used to validate configuration object.
+ * @param {any} value Value of the key of configuration object.
+ */
 export function resolveTypeof(value: any): string {
     if (Array.isArray(value)) {
         return "array";
@@ -132,4 +136,18 @@ export function resolveTypeof(value: any): string {
     }
 
     return typeof value;
+}
+
+/**
+ * Assign environemnt variables from the configuration to the process.
+ * @param {Config} config The configuration object.
+ */
+export function assignEnvironmentVariables(config: Config): void {
+    process.env.PORT = config.port.toString();
+    const environmentVariables = Object.entries(config.env);
+    if (environmentVariables) {
+        Object.entries(environmentVariables).forEach(([key, value]): void => {
+            process.env[key] = value.toString();
+        });
+    }
 }

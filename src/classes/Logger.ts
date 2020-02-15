@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 import { Config, LogLevels, LogPrefix } from "../interfaces";
 
 /**
@@ -18,12 +20,21 @@ export class Logger {
      */
     constructor(config: Config) {
         this.config = config;
+
+        process.on("unhandledRejection", reason => {
+            this.fatal(reason);
+        });
+
+        process.on("uncaughtException", error => {
+            this.fatal(error);
+        });
     }
 
     /**
      * The is the internal print function used by the logger to check the `logLevel` and print messages to the terminal.
-     * @param {any|any[]} message An object to print to the terminal.
+     * @param {any|any[]} message An item to be printed to the terminal.
      * @param {number} level The level of the log.
+     * @param {string} prefix The string to prefix the log message with.
      */
     private print(
         message: any | Array<any>,
@@ -31,22 +42,53 @@ export class Logger {
         prefix: string
     ): void {
         if (level <= this.config.logLevel) {
-            console.log(prefix, ...message);
+            const chalkFunction: Function = this.chalk(level);
+            console.log(
+                prefix,
+                chalkFunction(
+                    ...(!Array.isArray(message) ? [message] : message)
+                )
+            );
+        }
+    }
+
+    private chalk(level: LogLevels): Function {
+        switch (level) {
+            default: {
+                return chalk.white.bold;
+            }
+
+            case 2: {
+                return chalk.yellow.dim;
+            }
+
+            case 3: {
+                return chalk.white;
+            }
+
+            case 4: {
+                return chalk.grey;
+            }
         }
     }
 
     /**
      * Log a critical message. This exits the process.
-     * @argument {any|any[]} messages
+     * @argument {any} error - Any valid error instance.
      */
-    fatal<IArguments>(...messages: any | Array<any>): void {
-        throw new Error([LogPrefix.FATAL, messages].join(" "));
+    fatal(error: any | Array<any>): void {
+        console.log("");
+        error.name = `${LogPrefix.FATAL} ${error.name}`;
+        console.log(error.stack);
+        console.log("");
+        process.exit(1);
     }
 
     /**
      * Logs a critical message. Does not exit the process.
+     * @argument {any|any[]} messages
      */
-    error<IArguments>(...messages: any | Array<any>): void {
+    error(...messages: any | Array<any>): void {
         this.print(messages, LogLevels.ERROR, LogPrefix.ERROR);
     }
 
@@ -54,7 +96,7 @@ export class Logger {
      * Logs a warning. Used to highlight cause of problems.
      * @argument {any|any[]} messages
      */
-    warn<IArguments>(...messages: any | Array<any>): void {
+    warn(...messages: any | Array<any>): void {
         this.print(messages, LogLevels.WARN, LogPrefix.WARN);
     }
 
@@ -62,7 +104,7 @@ export class Logger {
      * Logs an informative message. Useful for general logging purposes.
      * @argument {any|any[]} messages
      */
-    info<IArguments>(...messages: any | Array<any>): void {
+    info(...messages: any | Array<any>): void {
         this.print(messages, LogLevels.INFO, LogPrefix.INFO);
     }
 
@@ -70,7 +112,7 @@ export class Logger {
      * Logs all messages useful while debugging specially. Useful for providing more context to advanced users.
      * @argument {any|any[]} messages
      */
-    debug<IArguments>(...messages: any | Array<any>): void {
+    debug(...messages: any | Array<any>): void {
         this.print(messages, LogLevels.DEBUG, LogPrefix.DEBUG);
     }
 }

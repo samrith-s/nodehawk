@@ -9,8 +9,8 @@ export default {
         default: "."
     },
     ignored: {
-        type: "string",
-        default: ""
+        type: "string|regexp",
+        default: /node_modules/
     },
     exec: {
         type: "string",
@@ -77,23 +77,23 @@ export default {
         type: "object"
     },
     "display.onBeforeStart": {
-        type: "string",
+        type: "string|boolean",
         default: "Starting..."
     },
     "display.onStart": {
-        type: "string",
+        type: "string|boolean",
         default: "Started"
     },
     "display.onBeforeRestart": {
-        type: "string",
+        type: "string|boolean",
         default: "Restarting..."
     },
     "display.onRestart": {
-        type: "string",
+        type: "string|boolean",
         default: "Restarting..."
     },
     "display.onBeforeStop": {
-        type: "string",
+        type: "string|boolean",
         default: "Stopping..."
     },
     clearScreen: {

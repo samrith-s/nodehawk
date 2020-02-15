@@ -114,24 +114,16 @@ of these configurations are provided through a `.nodehawkrc` file.
 | -------- | ---------------- | --------- | ------------------------------------------------------------------------------------------ |
 | paths    | string\|string[] | `"./src"` | The path or array of paths or globs to watch for changes.                                  |
 | root     | string           | `"."`     | The root folder from where all paths are resolved.                                         |
-| ignored  | string\|regex    | `""`      | A path or glob of files or folders to be ignored.                                          |
 | exec     | string           | `""`      | The command to execute when a restart is triggered.                                        |
 | port     | number           | `4000`    | The port number where your process will run.                                               |
 | logLevel | number           | `3`       | The verbosity of logs to be displayed. `1:fatal`, `2:error`, `3:warn`, `4:info`, `5:debug` |
 
 ### Performance
 
-| Key    | Type   | Default | Description                                                                                       |
-| ------ | ------ | ------- | ------------------------------------------------------------------------------------------------- |
-| buffer | number | `300`   | Buffer delay in milliseconds to wait for events after which the `exec` command should be trigger. |
-
-For all possible watcher options, you can refer to the
-[Chokidar docs](https://github.com/paulmillr/chokidar#api). Some options are
-unsupported as these have been set internally or passed indirectly:
-
--   `persistent`
--   `ignoreInitial`
--   `ignored`
+| Key     | Type           | Default | Description                                                                                       |
+| ------- | -------------- | ------- | ------------------------------------------------------------------------------------------------- |
+| buffer  | number         | `300`   | Buffer delay in milliseconds to wait for events after which the `exec` command should be trigger. |
+| ignored | string\|regexp | `""`    | A path or glob of files or folders to be ignored.                                                 |
 
 ### Display
 
@@ -143,6 +135,12 @@ unsupported as these have been set internally or passed indirectly:
 | display.onRestart       | string  | `"Restarting.."`. | Message to display after the process has restarted.         |
 | display.onBeforeStop    | string  | `"Stopping..."`   | Message to display while stopping the process.              |
 | clearScreen             | boolean | `true`            | Whether to clear the console on start/restart event or not. |
+
+### Process
+
+| Key | Type   | Default | Description                                      |
+| --- | ------ | ------- | ------------------------------------------------ |
+| env | object | `{}`    | Key value pairs to be assigned to `process.env`. |
 
 ## Contributors
 

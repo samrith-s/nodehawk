@@ -133,3 +133,13 @@ export function resolveTypeof(value: any): string {
 
     return typeof value;
 }
+
+export function assignEnvironmentVariables(config: Config): void {
+    process.env.PORT = config.port.toString();
+    const environmentVariables = Object.entries(config.env);
+    if (environmentVariables) {
+        Object.entries(environmentVariables).forEach(([key, value]): void => {
+            process.env[key] = value.toString();
+        });
+    }
+}

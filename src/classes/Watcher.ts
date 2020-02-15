@@ -79,9 +79,22 @@ export class Watcher extends Provider {
     private async bindWatcherEvents(): Promise<void> {
         this.instance.on("ready", async () => {
             await this.thread.start(this.root);
+            console.log("");
         });
-        this.instance.on("all", async () => {
+
+        this.instance.on("all", async (res, file) => {
             await this.thread.restart(this.root);
+            this.log.debug(
+                "EVENT:",
+                res,
+                "| FILE:",
+                path.resolve(this.root, file)
+            );
+            console.log("");
+        });
+
+        this.instance.on("error", async error => {
+            this.log.fatal(error);
         });
     }
 

@@ -1,8 +1,7 @@
-import Spinner, { Ora } from "ora";
-
 import { Config } from "../interfaces";
 
 import { Logger } from "./Logger";
+import { Display } from "./Display";
 
 /**
  * The base provider class that all other classes extend from. This helps to share the configuration, loggers and spinners.
@@ -19,9 +18,9 @@ export abstract class Provider {
     protected log: Logger;
 
     /**
-     * The `Ora` spinner instance which is useful for display purposes.
+     * The `Display` instance which allows displaying user configued messages.
      */
-    protected spinner: Ora;
+    protected display: Display;
 
     /**
      * The `Provider` acts as a base class to extend from. By itself, it does nothing. It's useful for initialising and sharing useful things to it's child class.
@@ -30,8 +29,6 @@ export abstract class Provider {
     constructor(config: Config) {
         this.config = config;
         this.log = new Logger(config);
-        this.spinner = Spinner({
-            prefixText: "[Nodehawk]"
-        });
+        this.display = new Display(config);
     }
 }

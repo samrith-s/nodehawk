@@ -2,4 +2,3 @@
 
 const Nodehawk = require("../lib").default;
 const nodehawk = new Nodehawk();
-console.log("Nodehawk running!");

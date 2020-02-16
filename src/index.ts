@@ -1,3 +1,6 @@
-import { Nodehawk } from "./classes/Nodehawk";
+/**
+ * @hidden
+ * @packageDocumentation
+ */
 
-export default Nodehawk;
+export { default as Nodehawk } from "./classes/Main";

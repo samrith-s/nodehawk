@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ * @module Interfaces
+ *
+ */
+
 import chalk from "chalk";
 
 export interface Config {

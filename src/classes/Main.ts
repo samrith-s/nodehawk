@@ -1,10 +1,10 @@
 /**
- * @internal
- * The entry point class, which triggers calls to all other classes.
+ * The primary class which triggers the instatiation of all other classes.
  *
  * @packageDocumentation
- * @package Nodehawk
+ * @module Main
  * @preferred
+ * @extends Provider
  */
 
 import Watcher from "./Watcher";
@@ -27,7 +27,7 @@ import {
  * const nodehawk = new Nodehawk();
  * ```
  */
-export default class Nodehawk extends Provider {
+export default class Main extends Provider {
     /**
      * Instance of `Watcher` created for this instance.
      */

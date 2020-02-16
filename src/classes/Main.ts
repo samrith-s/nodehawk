@@ -1,5 +1,14 @@
-import { Watcher } from "./Watcher";
-import { Provider } from "./Provider";
+/**
+ * @internal
+ * The entry point class, which triggers calls to all other classes.
+ *
+ * @packageDocumentation
+ * @package Nodehawk
+ * @preferred
+ */
+
+import Watcher from "./Watcher";
+import Provider from "./Provider";
 
 import { Config, ConfigCheck, WatcherListeners } from "interfaces";
 
@@ -18,7 +27,7 @@ import {
  * const nodehawk = new Nodehawk();
  * ```
  */
-export class Nodehawk extends Provider {
+export default class Nodehawk extends Provider {
     /**
      * Instance of `Watcher` created for this instance.
      */

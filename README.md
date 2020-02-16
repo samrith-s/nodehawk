@@ -8,9 +8,6 @@ Nodehawk is a watcher for your Node server, without a lot of overheads. It
 observes your directories and files for changes, and triggers rebuilds to make
 Node application developments hassle-free. Supports every NodeJS framework.
 
-Nodehawk is a self-contained package, and does not require any additional
-dependencies to run. Just run `nodehawk` in your project folder.
-
 This project is inspired by the fantastic
 [Nodemon](https://nodemon.io?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
 and uses

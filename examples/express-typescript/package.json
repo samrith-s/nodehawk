@@ -1,0 +1,9 @@
+{
+    "name": "nodehawk-express-typescript",
+    "version": "1.0.0",
+    "description": "An Express Typescript boilerplate with Nodehawk.",
+    "repository": "git@github.com:samrith-s/nodehawk.git",
+    "author": "Samrith Shankar <samrith.shankar@outlook.com>",
+    "license": "MIT",
+    "private": true
+}

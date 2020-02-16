@@ -43,45 +43,51 @@ export function loadConfiguration(): Config {
  * @param {Config} config The configuration object to check.
  */
 export function checkConfig(config: Config): ConfigCheck {
-    const configFlat: ConfigFlat = flatten(config);
+    const configFlat: ConfigFlat = flatten(config, {
+        safe: true
+    });
     const entries: [string, ConfigValue][] = Object.entries(configFlat);
 
     for (const entry of entries) {
         const [key, entryValue]: [string, ConfigValue] = entry;
-        const defaultValueObject: ConfigDefault = DEFAULT_CONFIG[key];
+        if (!key.includes("env.")) {
+            const defaultValueObject: ConfigDefault = DEFAULT_CONFIG[key];
 
-        if (!defaultValueObject) {
-            return {
-                success: false,
-                keyError: true,
-                key
-            };
-        }
+            if (!defaultValueObject) {
+                return {
+                    success: false,
+                    keyError: true,
+                    key
+                };
+            }
 
-        const { type: desiredType }: ConfigDefault = defaultValueObject;
-        const availableTypes: string[] = desiredType.split("|");
-        const arrayTypes: string[] = availableTypes.filter(type =>
-            /\[*\]/.test(type)
-        );
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        const providedType: string = resolveTypeof(entryValue);
+            const { type: desiredType }: ConfigDefault = defaultValueObject;
+            const availableTypes: string[] = desiredType.split("|");
+            const arrayTypes: string[] = availableTypes.filter(type =>
+                /\[*\]/.test(type)
+            );
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+            const providedType: string = resolveTypeof(entryValue);
 
-        if (
-            !availableTypes.includes(providedType) ||
-            (Array.isArray(entryValue) &&
-                !arrayTypes.some(arrayType => {
-                    entryValue.every(
-                        value =>
-                            typeof value === arrayType.replace(/\[|\]/g, "")
-                    );
-                }))
-        ) {
-            return {
-                success: false,
-                key,
-                desiredType,
-                providedType
-            };
+            if (
+                !availableTypes.includes(providedType) &&
+                !(
+                    Array.isArray(entryValue) &&
+                    arrayTypes.some(arrayType => {
+                        const type = arrayType
+                            .replace(/\[|\]/g, "")
+                            .toLowerCase();
+                        return entryValue.every(value => typeof value === type);
+                    })
+                )
+            ) {
+                return {
+                    success: false,
+                    key,
+                    desiredType,
+                    providedType
+                };
+            }
         }
     }
 
@@ -150,8 +156,8 @@ function resolveTypeof(value: any): string {
 export function assignEnvironmentVariables(config: Config): void {
     process.env.PORT = config.port.toString();
     const environmentVariables = Object.entries(config.env);
-    if (environmentVariables) {
-        Object.entries(environmentVariables).forEach(([key, value]): void => {
+    if (environmentVariables.length) {
+        environmentVariables.forEach(([key, value]): void => {
             process.env[key] = value.toString();
         });
     }

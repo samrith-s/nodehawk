@@ -1,0 +1,8 @@
+{
+    "excludeExternals": false,
+    "name": "Nodehawk",
+    "mode": "file",
+    "theme": "default",
+    "excludeNotExported": true,
+    "categorizeByGroup": true
+}

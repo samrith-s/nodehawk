@@ -28,7 +28,7 @@
         "start": "rimraf lib/ && tsc -w",
         "create": "yarn build && yarn test",
         "build": "rimraf lib/ && tsc -p .",
-        "test": "NODE_ENV=development mocha",
+        "test": "mocha -r ts-node/register tests/**/*.spec.ts",
         "refresh": "rimraf ./node_modules ./yarn.lock && yarn install",
         "lint": "eslint src/**/*.ts",
         "docs:generate": "typedoc ./src",
@@ -36,6 +36,8 @@
         "docs:deploy": "yarn docs:generate && gh-pages -d ./docs"
     },
     "devDependencies": {
+        "@types/chai": "^4.2.9",
+        "@types/mocha": "^7.0.1",
         "@types/node": "^13.1.4",
         "@typescript-eslint/eslint-plugin": "^2.15.0",
         "@typescript-eslint/parser": "^2.15.0",
@@ -52,6 +54,7 @@
         "mocha": "^7.0.1",
         "prettier": "^1.19.1",
         "rimraf": "^3.0.1",
+        "ts-node": "^8.6.2",
         "typedoc": "^0.16.9",
         "typescript": "^3.7.4"
     },

@@ -68,13 +68,17 @@ export default class Main extends Provider {
         if (!success) {
             if (keyError) {
                 this.log.fatal(
-                    `Key ${key} is not valid. Please refer to the configuration document and provide a valid key.`
+                    new Error(
+                        `Key ${key} is not valid. Please refer to the configuration document and provide a valid key.`
+                    )
                 );
             } else {
                 this.log.fatal(
-                    `Key ${key} in configuration has a type mismatch. Expected ${desiredType
-                        .split("|")
-                        .join(", ")} but instead got ${providedType}.`
+                    new Error(
+                        `Key ${key} in configuration has a type mismatch. Expected ${desiredType
+                            .split("|")
+                            .join(", ")} but instead got ${providedType}.`
+                    )
                 );
             }
         }

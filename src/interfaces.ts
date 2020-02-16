@@ -30,7 +30,8 @@ export interface Config {
      * They are attached to the config by the `rc` package, which is used to load a merged
      * version of .nodehawkrc and default config.
      */
-    _?: object;
+    r?: any[];
+    _?: any;
     config?: string;
     configs?: string[];
 }

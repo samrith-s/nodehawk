@@ -20,7 +20,7 @@ under the hood. Thanks to
 for the icon.
 
 [![npm](https://img.shields.io/npm/v/nodehawk?label=Package)](https://www.npmjs.com/package/nodehawk)
-[![Build](https://github.com/samrith-s/nodehawk/workflows/Build/badge.svg)](https://github.com/samrith-s/nodehawk/actions?query=workflow%3ABuild)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![Build](https://github.com/samrith-s/nodehawk/workflows/Build%20&%20Test/badge.svg)](https://github.com/samrith-s/nodehawk/actions?query=workflow%3A%22Build+%26+Test%22)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->

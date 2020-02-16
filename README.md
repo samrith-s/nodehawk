@@ -34,6 +34,8 @@ for the icon.
     -   [Basic](#basic)
     -   [Performance](#performance)
     -   [Display](#display)
+    -   [Process](#process)
+-   [Examples](#examples)
 -   [Contributors](#contributors)
 
 ## Why Nodehawk?
@@ -141,6 +143,15 @@ of these configurations are provided through a `.nodehawkrc` file.
 | Key | Type   | Default | Description                                      |
 | --- | ------ | ------- | ------------------------------------------------ |
 | env | object | `{}`    | Key value pairs to be assigned to `process.env`. |
+
+## Examples
+
+There are quite a few real-world examples of Nodehawk. You can the in the
+[examples](https://github.com/samrith-s/nodehawk/tree/master/examples)
+directory.
+
+-   [Express Javascript Server](https://github.com/samrith-s/nodehawk/tree/master/examples/express-javascript)
+-   [Express Typescript Server](https://github.com/samrith-s/nodehawk/tree/master/examples/express-typescript)
 
 ## Contributors
 

@@ -69,3 +69,6 @@ dist
 
 # ignoring package-lock.json
 package-lock.json
+
+# ignoring docs
+docs/

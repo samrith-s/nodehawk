@@ -29,9 +29,9 @@
         "build": "rimraf lib/ && tsc -p .",
         "refresh": "rimraf ./node_modules ./yarn.lock && yarn install",
         "lint": "eslint src/**/*.ts",
-        "docs:generate": "typedoc ./src --mode modules --name Nodehawk",
+        "docs:generate": "typedoc ./src",
         "docs:serve": "live-server ./docs",
-        "docs:deploy": "yarn docs:generate && gh-pages ./docs"
+        "docs:deploy": "yarn docs:generate && gh-pages -d ./docs"
     },
     "devDependencies": {
         "@types/node": "^13.1.4",

@@ -1,3 +1,8 @@
+/**
+ * @moduledefinition
+ * @module Display
+ */
+
 import Spinner, { Ora } from "ora";
 
 import { Config } from "../interfaces";
@@ -5,7 +10,7 @@ import { Config } from "../interfaces";
 /**
  * The Display class is the primary class responsible for providing spinner visualisations.
  */
-export class Display {
+export default class Display {
     /**
      * The configuration object passed to this instance.
      */

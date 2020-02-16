@@ -1,3 +1,8 @@
+/**
+ * @hidden
+ * @packageDocumentation
+ */
+
 export default {
     // basic configuration
     paths: {

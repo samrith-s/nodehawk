@@ -1,10 +1,15 @@
+/**
+ * @packageDocumentation
+ * @module Thread
+ */
+
 import { spawn, ChildProcessWithoutNullStreams } from "child_process";
 import cliCursor from "cli-cursor";
 import killPort from "kill-port";
 
 import { Config } from "../interfaces";
 
-import { Provider } from "./Provider";
+import Provider from "./Provider";
 
 import { clearScreen } from "../utils";
 
@@ -15,7 +20,7 @@ import { clearScreen } from "../utils";
  * @param {boolean} initial Determines if this is the first time the process is running.
  * @param {boolean} restart Determines if the process should restart after cleanup.
  */
-export class Thread extends Provider {
+export default class Thread extends Provider {
     /**
      * The child process generated using `child_process.spawn`.
      */

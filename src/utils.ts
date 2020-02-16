@@ -1,3 +1,8 @@
+/**
+ * @packageModule
+ * @module Utils
+ */
+
 import path from "path";
 import { cursorTo, clearScreenDown } from "readline";
 import rc from "rc";
@@ -122,7 +127,7 @@ export function clearScreen(): void {
  * Resolve the type from string, used to validate configuration object.
  * @param {any} value Value of the key of configuration object.
  */
-export function resolveTypeof(value: any): string {
+function resolveTypeof(value: any): string {
     if (Array.isArray(value)) {
         return "array";
     }

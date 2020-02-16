@@ -1,3 +1,8 @@
+/**
+ * @packageDocumentation
+ * @module Logger
+ */
+
 import chalk from "chalk";
 
 import { Config, LogLevels, LogPrefix } from "../interfaces";
@@ -8,7 +13,7 @@ import { Config, LogLevels, LogPrefix } from "../interfaces";
  * @param {Config} config The application config object generated at runtime.
  */
 
-export class Logger {
+export default class Logger {
     /**
      * The `Config` object provided to this instance.
      */

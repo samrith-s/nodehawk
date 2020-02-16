@@ -1,0 +1,469 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Nodehawk</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Nodehawk</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>Nodehawk</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p align="center"><img src="https://raw.githubusercontent.com/samrith-s/nodehawk/master/assets/nodehawk.png" width="200"></p>
+				<a href="#nodehawk" id="nodehawk" style="color: inherit; text-decoration: none;">
+					<h1>Nodehawk</h1>
+				</a>
+				<blockquote>
+					<p>⚠️ This is still under active development and by no means complete. Please do
+					not use this package as of now.</p>
+				</blockquote>
+				<p>Nodehawk is a watcher for your Node server, without a lot of overheads. It
+					observes your directories and files for changes, and triggers rebuilds to make
+				Node application developments hassle-free. Supports every NodeJS framework.</p>
+				<p>Nodehawk is a self-contained package, and does not require any additional
+				dependencies to run. Just run <code>nodehawk</code> in your project folder.</p>
+				<p>This project is inspired by the fantastic
+					<a href="https://nodemon.io?utm_source=nodehawk&amp;utm_medium=github&amp;utm_campaign=nodehawk-freepik-referral">Nodemon</a>
+					and uses
+					<a href="https://github.com/paulmillr/chokidar?utm_source=nodehawk&amp;utm_medium=github&amp;utm_campaign=nodehawk-freepik-referral">Chokidar</a>
+					under the hood. Thanks to
+					<a href="https://www.freepik.com?utm_source=nodehawk&amp;utm_medium=github&amp;utm_campaign=nodehawk-freepik-referral">Freepik</a>
+				for the icon.</p>
+				<p><img src="https://img.shields.io/npm/v/nodehawk?label=Nodehawk" alt="npm">
+					<a href="https://travis-ci.com/samrith-s/nodehawk"><img src="https://travis-ci.com/samrith-s/nodehawk.svg?branch=master" alt="Build Status"></a><!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+				<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat" alt="All Contributors"></a></p>
+				<!-- ALL-CONTRIBUTORS-BADGE:END -->
+				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+					<h2>Table of contents</h2>
+				</a>
+				<ul>
+					<li><a href="#why-nodehawk">Why Nodehawk?</a></li>
+					<li><a href="#installation-and-usage">Installation and usage</a></li>
+					<li><a href="#configurations">Configurations</a><ul>
+							<li><a href="#basic">Basic</a></li>
+							<li><a href="#performance">Performance</a></li>
+							<li><a href="#display">Display</a></li>
+							<li><a href="#process">Process</a></li>
+						</ul>
+					</li>
+					<li><a href="#examples">Examples</a></li>
+					<li><a href="#contributors">Contributors</a></li>
+				</ul>
+				<a href="#why-nodehawk" id="why-nodehawk" style="color: inherit; text-decoration: none;">
+					<h2>Why Nodehawk?</h2>
+				</a>
+				<p>During the development of a Node server, there is a need for a very versatile
+					watcher than can keep track of your changes and rebuild your application to
+					reflect the same. Of course, there is <a href="https://nodemon.io">Nodemon</a> which is the
+				inspiration of this tool, but there are some shortcomings to it.</p>
+				<p>One of the major differentiator of Nodehawk, is that it is built specifically to
+					make development of Node servers less cumbersome. It primarily focuses on
+					providing a watcher that addresses
+				<a href="https://stackoverflow.com/questions/4075287/node-express-eaddrinuse-address-already-in-use-kill-server">issues around watching and restarting</a>.</p>
+				<a href="#installation-and-usage" id="installation-and-usage" style="color: inherit; text-decoration: none;">
+					<h2>Installation and usage</h2>
+				</a>
+				<p>There are two ways to use this. Either install it globally or add it as a
+				development dependency.</p>
+				<p>Installing globally using NPML</p>
+				<pre><code class="language-bash">npm i -g nodehawk</code></pre>
+				<p>or with Yarn:</p>
+				<pre><code class="language-bash">yarn global add global nodehawk</code></pre>
+				<p>Adding the package as a dev dependency to your project with NPM:</p>
+				<pre><code class="language-bash">npm i -D nodehawk</code></pre>
+				<p>or with Yarn:</p>
+				<pre><code class="language-bash">yarn add -D nodehawk</code></pre>
+				<p>For using the watcher, simple add a script to your <code>package.json</code>:</p>
+				<pre><code class="language-json">{
+    <span class="hljs-attr">"scripts"</span>: {
+        <span class="hljs-attr">"start"</span>: <span class="hljs-string">"nodehawk"</span>
+    }
+}</code></pre>
+				<blockquote>
+					<p><strong>IMPORTANT:</strong> Nodehawk will by default pass a <code>process.env.PORT</code> to your
+					process. Use it to run your app on that port. All you need to do is:</p>
+				</blockquote>
+				<pre><code class="language-diff"><span class="hljs-deletion">- server.listen(&lt;your-existing-port&gt;);</span>
+<span class="hljs-addition">+ server.listen(process.env.PORT);</span></code></pre>
+				<blockquote>
+					<p>This will help Nodehawk kill the process running on the port to prevent any
+					<code>EADDRINUSE</code> errors. You can customize the port in the configurations below.</p>
+				</blockquote>
+				<p>The watcher will run with the default configurations, and automatically start
+					watching your <code>src</code> directory. If you want to customize it further, you can read
+					the whole list of configurations, which can be specified in a <code>.nodehawkrc</code> file
+				in the root of your project alongside <code>package.json</code>.</p>
+				<a href="#configurations" id="configurations" style="color: inherit; text-decoration: none;">
+					<h2>Configurations</h2>
+				</a>
+				<p>Nodehawk allows a rich variety of configuration options, to suit your needs. All
+				of these configurations are provided through a <code>.nodehawkrc</code> file.</p>
+				<a href="#basic" id="basic" style="color: inherit; text-decoration: none;">
+					<h3>Basic</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>paths</td>
+							<td>string|string[]</td>
+							<td><code>&quot;./src&quot;</code></td>
+							<td>The path or array of paths or globs to watch for changes.</td>
+						</tr>
+						<tr>
+							<td>root</td>
+							<td>string</td>
+							<td><code>&quot;.&quot;</code></td>
+							<td>The root folder from where all paths are resolved.</td>
+						</tr>
+						<tr>
+							<td>exec</td>
+							<td>string</td>
+							<td><code>&quot;&quot;</code></td>
+							<td>The command to execute when a restart is triggered.</td>
+						</tr>
+						<tr>
+							<td>port</td>
+							<td>number</td>
+							<td><code>4000</code></td>
+							<td>The port number where your process will run.</td>
+						</tr>
+						<tr>
+							<td>logLevel</td>
+							<td>number</td>
+							<td><code>3</code></td>
+							<td>The verbosity of logs to be displayed. <code>1:fatal</code>, <code>2:error</code>, <code>3:warn</code>, <code>4:info</code>, <code>5:debug</code></td>
+						</tr>
+				</tbody></table>
+				<a href="#performance" id="performance" style="color: inherit; text-decoration: none;">
+					<h3>Performance</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>buffer</td>
+							<td>number</td>
+							<td><code>300</code></td>
+							<td>Buffer delay in milliseconds to wait for events after which the <code>exec</code> command should be trigger.</td>
+						</tr>
+						<tr>
+							<td>ignored</td>
+							<td>string|regexp</td>
+							<td><code>&quot;&quot;</code></td>
+							<td>A path or glob of files or folders to be ignored.</td>
+						</tr>
+				</tbody></table>
+				<a href="#display" id="display" style="color: inherit; text-decoration: none;">
+					<h3>Display</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>display.onBeforeStart</td>
+							<td>string</td>
+							<td><code>&quot;Starting...&quot;</code></td>
+							<td>Message to display while starting the process.</td>
+						</tr>
+						<tr>
+							<td>display.onStart</td>
+							<td>string</td>
+							<td><code>&quot;Started&quot;</code></td>
+							<td>Message to display after the process has started.</td>
+						</tr>
+						<tr>
+							<td>display.onBeforeRestart</td>
+							<td>string</td>
+							<td><code>&quot;Restarting...&quot;</code></td>
+							<td>Message to display while restarting the process.</td>
+						</tr>
+						<tr>
+							<td>display.onRestart</td>
+							<td>string</td>
+							<td><code>&quot;Restarting..&quot;</code>.</td>
+							<td>Message to display after the process has restarted.</td>
+						</tr>
+						<tr>
+							<td>display.onBeforeStop</td>
+							<td>string</td>
+							<td><code>&quot;Stopping...&quot;</code></td>
+							<td>Message to display while stopping the process.</td>
+						</tr>
+						<tr>
+							<td>clearScreen</td>
+							<td>boolean</td>
+							<td><code>true</code></td>
+							<td>Whether to clear the console on start/restart event or not.</td>
+						</tr>
+				</tbody></table>
+				<a href="#process" id="process" style="color: inherit; text-decoration: none;">
+					<h3>Process</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>env</td>
+							<td>object</td>
+							<td><code>{}</code></td>
+							<td>Key value pairs to be assigned to <code>process.env</code>.</td>
+						</tr>
+				</tbody></table>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<p>There are quite a few real-world examples of Nodehawk. You can the in the
+					<a href="https://github.com/samrith-s/nodehawk/tree/master/examples">examples</a>
+				directory.</p>
+				<ul>
+					<li><a href="https://github.com/samrith-s/nodehawk/tree/master/examples/express-javascript">Express Javascript Server</a></li>
+					<li><a href="https://github.com/samrith-s/nodehawk/tree/master/examples/express-typescript">Express Typescript Server</a></li>
+				</ul>
+				<a href="#contributors" id="contributors" style="color: inherit; text-decoration: none;">
+					<h2>Contributors</h2>
+				</a>
+				<p>Thanks goes to these wonderful people
+				(<a href="https://allcontributors.org/docs/en/emoji-key">emoji key</a>):</p>
+				<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+				<!-- prettier-ignore-start -->
+				<!-- markdownlint-disable -->
+				<table>
+					<tr>
+						<td align="center"><a href="https://github.com/samrith-s"><img src="https://avatars3.githubusercontent.com/u/9032162?v=4" width="50px;" alt=""/><br /><sub><b>Samrith Shankar</b></sub></a><br /><a href="https://github.com/samrith-s/nodehawk/commits?author=samrith-s" title="Code">💻</a> <a href="https://github.com/samrith-s/nodehawk/commits?author=samrith-s" title="Documentation">📖</a> <a href="#maintenance-samrith-s" title="Maintenance">🚧</a> <a href="https://github.com/samrith-s/nodehawk/pulls?q=is%3Apr+reviewed-by%3Asamrith-s" title="Reviewed Pull Requests">👀</a></td>
+					</tr>
+				</table>
+				<!-- markdownlint-enable -->
+				<!-- prettier-ignore-end -->
+				<!-- ALL-CONTRIBUTORS-LIST:END -->
+				<p>This project follows the
+					<a href="https://github.com/all-contributors/all-contributors">all-contributors</a>
+				specification. Contributions of any kind welcome!</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/loglevels.html" class="tsd-kind-icon">Log<wbr>Levels</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/watcherevents.html" class="tsd-kind-icon">Watcher<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/display.html" class="tsd-kind-icon">Display</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/main.html" class="tsd-kind-icon">Main</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/provider.html" class="tsd-kind-icon">Provider</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/thread.html" class="tsd-kind-icon">Thread</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/watcher.html" class="tsd-kind-icon">Watcher</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/config.html" class="tsd-kind-icon">Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/configcheck.html" class="tsd-kind-icon">Config<wbr>Check</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/configdefault.html" class="tsd-kind-icon">Config<wbr>Default</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/configflat.html" class="tsd-kind-icon">Config<wbr>Flat</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#configvalue" class="tsd-kind-icon">Config<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#watcherevent" class="tsd-kind-icon">Watcher<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#watcherlisteners" class="tsd-kind-icon">Watcher<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#assignenvironmentvariables" class="tsd-kind-icon">assign<wbr>Environment<wbr>Variables</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkconfig" class="tsd-kind-icon">check<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#clearscreen" class="tsd-kind-icon">clear<wbr>Screen</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#generatebasepathrelativetoroot" class="tsd-kind-icon">generate<wbr>Base<wbr>Path<wbr>Relative<wbr>ToRoot</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#loadconfiguration" class="tsd-kind-icon">load<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolvetypeof" class="tsd-kind-icon">resolve<wbr>Typeof</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#logprefix" class="tsd-kind-icon">Log<wbr>Prefix</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

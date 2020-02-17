@@ -115,10 +115,12 @@ export default class Thread extends Provider {
         this.childProcess.stdout.on("data", chunk => {
             cliCursor.hide();
             console.log(chunk.toString());
+            console.log("");
         });
         this.childProcess.stderr.on("data", error => {
             cliCursor.hide();
-            console.error(error);
+            console.log(error.toString());
+            console.log("");
         });
     }
 

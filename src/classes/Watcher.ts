@@ -66,6 +66,10 @@ export default class Watcher extends Provider {
          */
         try {
             this.instance = Chokidar.watch(this.paths, {
+                awaitWriteFinish: {
+                    stabilityThreshold: this.config.buffer,
+                    pollInterval: Math.round(this.config.buffer * 0.5)
+                },
                 ignored,
                 persistent: true,
                 ignoreInitial: true
@@ -81,17 +85,21 @@ export default class Watcher extends Provider {
         this.bindWatcherEvents();
     }
 
+    /**
+     * Bind all watcher events to the instance.
+     */
     private async bindWatcherEvents(): Promise<void> {
         this.instance.on("ready", async () => {
             await this.thread.start(this.root);
             console.log("");
         });
 
-        this.instance.on("all", async (res, file) => {
+        this.instance.on("all", async (event, file) => {
+            console.log("");
             await this.thread.restart(this.root);
             this.log.debug(
                 "EVENT:",
-                res,
+                event,
                 "| FILE:",
                 path.resolve(this.root, file)
             );

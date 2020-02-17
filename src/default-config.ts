@@ -33,7 +33,11 @@ export default {
     // performance
     buffer: {
         type: "number",
-        default: 300
+        default: 1500
+    },
+    bufferPoll: {
+        type: "number",
+        default: 100
     },
 
     // display

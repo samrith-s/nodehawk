@@ -90,6 +90,8 @@ export default class Thread extends Provider {
             clearScreen();
         }
 
+        cliCursor.hide();
+
         await this.killPort();
 
         if (restart) {
@@ -103,6 +105,8 @@ export default class Thread extends Provider {
 
         this.childProcess = await spawn(this.command, this.args, {
             cwd: root,
+            stdio: "inherit",
+            shell: true,
             env: process.env
         });
 
@@ -111,17 +115,6 @@ export default class Thread extends Provider {
         } else {
             this.display.onStart();
         }
-
-        this.childProcess.stdout.on("data", chunk => {
-            cliCursor.hide();
-            console.log(chunk.toString());
-            console.log("");
-        });
-        this.childProcess.stderr.on("data", error => {
-            cliCursor.hide();
-            console.log(error.toString());
-            console.log("");
-        });
     }
 
     /**

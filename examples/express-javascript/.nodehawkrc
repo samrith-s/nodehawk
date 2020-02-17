@@ -1,0 +1,8 @@
+{
+    "exec": "babel-node src/server",
+    "env": {
+        "NODE_ENV": "development",
+        "MY_MESSAGE": "This is my message to the world!"
+    },
+    "logLevel": 4
+}

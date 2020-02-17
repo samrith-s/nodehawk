@@ -22,6 +22,15 @@
         "README.md",
         "LICENSE"
     ],
+    "keywords": [
+        "javascript",
+        "typescript",
+        "express",
+        "watcher",
+        "nodemon",
+        "nodehawk",
+        "reload"
+    ],
     "scripts": {
         "try": "node ./bin/nodehawk",
         "prepublishOnly": "yarn build",

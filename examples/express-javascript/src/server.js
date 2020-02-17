@@ -1,4 +1,5 @@
 import express from "express";
+import chalk from "chalk";
 
 const app = express();
 
@@ -7,5 +8,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    console.log(`App running on http://localhost:${process.env.PORT}`);
+    console.log(
+        chalk`{yellow.bold App running on http://localhost:${process.env.PORT}}`
+    );
 });

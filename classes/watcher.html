@@ -69,6 +69,11 @@
 					<div class="lead">
 						<p>The base watcher class, that handles all file watches and fires events accordingly.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>extends</dt>
+						<dd><p>Provider</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -124,14 +129,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Watcher<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/config.html" class="tsd-signature-type">Config</a>, listeners<span class="tsd-signature-symbol">: </span><a href="../globals.html#watcherlisteners" class="tsd-signature-type">WatcherListeners</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="watcher.html" class="tsd-signature-type">Watcher</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Watcher<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/config.html" class="tsd-signature-type">Config</a>, listeners<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WatcherListeners</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="watcher.html" class="tsd-signature-type">Watcher</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="provider.html">Provider</a>.<a href="provider.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L48">classes/Watcher.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L45">classes/core/Watcher.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -150,7 +155,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>listeners: <a href="../globals.html#watcherlisteners" class="tsd-signature-type">WatcherListeners</a></h5>
+									<h5>listeners: <span class="tsd-signature-type">WatcherListeners</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="watcher.html" class="tsd-signature-type">Watcher</a></h4>
@@ -167,7 +172,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="provider.html">Provider</a>.<a href="provider.html#config">config</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Provider.ts#L18">classes/Provider.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/higher-order/Provider.ts#L14">classes/higher-order/Provider.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -183,7 +188,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="provider.html">Provider</a>.<a href="provider.html#display">display</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Provider.ts#L28">classes/Provider.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/higher-order/Provider.ts#L24">classes/higher-order/Provider.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -198,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">instance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FSWatcher</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L38">classes/Watcher.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L35">classes/core/Watcher.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -210,10 +215,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="listeners" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> listeners</h3>
-					<div class="tsd-signature tsd-kind-icon">listeners<span class="tsd-signature-symbol">:</span> <a href="../globals.html#watcherlisteners" class="tsd-signature-type">WatcherListeners</a></div>
+					<div class="tsd-signature tsd-kind-icon">listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WatcherListeners</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L48">classes/Watcher.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L45">classes/core/Watcher.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -229,7 +234,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="provider.html">Provider</a>.<a href="provider.html#log">log</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Provider.ts#L23">classes/Provider.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/higher-order/Provider.ts#L19">classes/higher-order/Provider.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -244,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">paths<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L28">classes/Watcher.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L25">classes/core/Watcher.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -259,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L33">classes/Watcher.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L30">classes/core/Watcher.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -274,7 +279,7 @@
 					<div class="tsd-signature tsd-kind-icon">thread<span class="tsd-signature-symbol">:</span> <a href="thread.html" class="tsd-signature-type">Thread</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L43">classes/Watcher.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L40">classes/core/Watcher.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -296,7 +301,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L91">classes/Watcher.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L88">classes/core/Watcher.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -318,7 +323,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L132">classes/Watcher.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L129">classes/core/Watcher.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,13 +339,13 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../globals.html#watcherevent" class="tsd-signature-type">WatcherEvent</a>, eventHandler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WatcherEvent</span>, eventHandler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/classes/Watcher.ts#L119">classes/Watcher.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/8bd22e2/src/classes/core/Watcher.ts#L116">classes/core/Watcher.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -351,7 +356,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../globals.html#watcherevent" class="tsd-signature-type">WatcherEvent</a></h5>
+									<h5>event: <span class="tsd-signature-type">WatcherEvent</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The event to fire this function for. Possible options are <code>onBeforeStart</code>, <code>onStart</code>, <code>onBeforeChange</code>, <code>onChange</code>, <code>onBeforeStop</code> and <code>onStop</code>.</p>
 									</div>
@@ -447,24 +452,6 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/config.html" class="tsd-kind-icon">Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/configcheck.html" class="tsd-kind-icon">Config<wbr>Check</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/configdefault.html" class="tsd-kind-icon">Config<wbr>Default</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/configflat.html" class="tsd-kind-icon">Config<wbr>Flat</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#configvalue" class="tsd-kind-icon">Config<wbr>Value</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#watcherevent" class="tsd-kind-icon">Watcher<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#watcherlisteners" class="tsd-kind-icon">Watcher<wbr>Listeners</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#assignenvironmentvariables" class="tsd-kind-icon">assign<wbr>Environment<wbr>Variables</a>

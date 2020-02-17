@@ -1,6 +1,7 @@
 # Express Javascript server with Nodehawk
 
-To run an Express server written in JavaScript, it is very simple.
+To create an Express server written in JavaScript, with Nodemon watching for
+changes, is very simple.
 
 -   Install express
 

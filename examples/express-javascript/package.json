@@ -10,7 +10,8 @@
         "start": "nodehawk"
     },
     "dependencies": {
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "chalk": "link:../../node_modules/chalk"
     },
     "devDependencies": {
         "@babel/core": "^7.8.4",

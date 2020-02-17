@@ -1,7 +1,6 @@
 /**
  * @packageDocumentation
  * @module Interfaces
- *
  */
 
 import chalk from "chalk";
@@ -13,7 +12,8 @@ export interface Config {
     port?: number;
     ignored?: string;
     logLevel?: number;
-    bufferInterval?: number;
+    buffer?: number;
+    bufferPoll?: number;
     clearScreen?: boolean;
     display?: {
         onBeforeStart?: string;
@@ -28,7 +28,7 @@ export interface Config {
     /**
      * These values have been added in the config to avoid our config validation failing.
      * They are attached to the config by the `rc` package, which is used to load a merged
-     * version of .nodehawkrc and default config.
+     * version of `.nodehawkrc` and default config.
      */
     r?: any[];
     _?: any;

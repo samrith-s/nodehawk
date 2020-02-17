@@ -25,7 +25,8 @@ for the icon.
 ## Table of contents
 
 -   [Why Nodehawk?](#why-nodehawk)
--   [Installation and usage](#installation-and-usage)
+-   [Installation](#installation)
+-   [Usage](#usage)
 -   [Configurations](#configurations)
     -   [Basic](#basic)
     -   [Performance](#performance)
@@ -46,34 +47,32 @@ make development of Node servers less cumbersome. It primarily focuses on
 providing a watcher that addresses
 [issues around watching and restarting](https://stackoverflow.com/questions/4075287/node-express-eaddrinuse-address-already-in-use-kill-server).
 
-## Installation and usage
+## Installation
 
 There are two ways to use this. Either install it globally or add it as a
 development dependency.
 
-Installing globally using NPML
+-   Installing globally:
 
 ```bash
+# with npm
 npm i -g nodehawk
-```
 
-or with Yarn:
-
-```bash
+# with yarn
 yarn global add global nodehawk
 ```
 
-Adding the package as a dev dependency to your project with NPM:
+-   Adding the package as a dev dependency to your project:
 
 ```bash
+# with npm
 npm i -D nodehawk
-```
 
-or with Yarn:
-
-```bash
+# with yarn
 yarn add -D nodehawk
 ```
+
+## Usage
 
 For using the watcher, simple add a script to your `package.json`:
 
@@ -89,12 +88,21 @@ For using the watcher, simple add a script to your `package.json`:
 > process. Use it to run your app on that port. All you need to do is:
 
 ```diff
-- server.listen(<your-existing-port>);
-+ server.listen(process.env.PORT);
+- app.listen(<your-existing-port>);
++ app.listen(process.env.PORT);
 ```
 
 > This will help Nodehawk kill the process running on the port to prevent any
 > `EADDRINUSE` errors. You can customize the port in the configurations below.
+
+**You need to provide an exec command in a `.nodehawkrc` file. The simplest one
+for your server can be:**
+
+```json
+{
+    "exec": "node src/server"
+}
+```
 
 The watcher will run with the default configurations, and automatically start
 watching your `src` directory. If you want to customize it further, you can read
@@ -118,10 +126,11 @@ of these configurations are provided through a `.nodehawkrc` file.
 
 ### Performance
 
-| Key     | Type           | Default | Description                                                                                       |
-| ------- | -------------- | ------- | ------------------------------------------------------------------------------------------------- |
-| buffer  | number         | `300`   | Buffer delay in milliseconds to wait for events after which the `exec` command should be trigger. |
-| ignored | string\|regexp | `""`    | A path or glob of files or folders to be ignored.                                                 |
+| Key        | Type           | Default | Description                                                                 |
+| ---------- | -------------- | ------- | --------------------------------------------------------------------------- |
+| buffer     | number         | `1500`  | Buffer to wait for events after which the `exec` command should be trigger. |
+| bufferPoll | number         | `100`   | Poll to check the stability of the buffer.                                  |
+| ignored    | string\|regexp | `""`    | A path or glob of files or folders to be ignored.                           |
 
 ### Display
 

@@ -5,21 +5,68 @@
 
 import chalk from "chalk";
 
+/**
+ * @category Configuration
+ */
 export interface Config {
+    /**
+     * @default `src`
+     */
     paths?: string | [string];
+
+    /**
+     * @default `.`
+     */
     root?: string;
+
+    /**
+     * @default `echo No execution command specified!`
+     */
     exec?: string;
+    /**
+     * @default 4000
+     */
     port?: number;
-    ignored?: string;
+    /**
+     * @default /node_modules/
+     */
+    ignored?: string | RegExp;
+    /**
+     * @default 3
+     */
     logLevel?: number;
+    /**
+     * @default 1500
+     */
     buffer?: number;
+    /**
+     * @default 100
+     */
     bufferPoll?: number;
+    /**
+     * @default true
+     */
     clearScreen?: boolean;
     display?: {
+        /**
+         * @default Starting..
+         */
         onBeforeStart?: string;
+        /**
+         * @default Started
+         */
         onStart?: string;
+        /**
+         * @default Restarting..
+         */
         onBeforeRestart?: string;
+        /**
+         * @default Restarted
+         */
         onRestart?: string;
+        /**
+         * @default Stopping..
+         */
         onBeforeStop?: string;
     };
     env?: {
@@ -30,12 +77,27 @@ export interface Config {
      * They are attached to the config by the `rc` package, which is used to load a merged
      * version of `.nodehawkrc` and default config.
      */
+    /**
+     * @ignore
+     */
     r?: any[];
+    /**
+     * @ignore
+     */
     _?: any;
+    /**
+     * @ignore
+     */
     config?: string;
+    /**
+     * @ignore
+     */
     configs?: string[];
 }
 
+/**
+ * @ignore
+ */
 export type ConfigValue =
     | string
     | string[]
@@ -44,15 +106,24 @@ export type ConfigValue =
     | boolean
     | boolean[];
 
+/**
+ * @ignore
+ */
 export interface ConfigFlat {
     [key: string]: ConfigValue;
 }
 
+/**
+ * @ignore
+ */
 export interface ConfigDefault {
     type: string;
     default: ConfigValue;
 }
 
+/**
+ * @ignore
+ */
 export interface ConfigCheck {
     success: boolean;
     keyError?: boolean;
@@ -61,6 +132,9 @@ export interface ConfigCheck {
     providedType?: string;
 }
 
+/**
+ * @category Configuration
+ */
 export enum WatcherEvents {
     onBeforeStart = "ON_BEFORE_START",
     onStart = "ON_START",
@@ -70,12 +144,21 @@ export enum WatcherEvents {
     onStop = "ON_STOP"
 }
 
+/**
+ * @ignore
+ */
 export type WatcherEvent = keyof typeof WatcherEvents;
 
+/**
+ * @ignore
+ */
 export type WatcherListeners = {
     [event in WatcherEvent]?: Function;
 };
 
+/**
+ * @category Configuration
+ */
 export enum LogLevels {
     FATAL = 0,
     ERROR = 1,
@@ -84,6 +167,9 @@ export enum LogLevels {
     DEBUG = 4
 }
 
+/**
+ * @category Configuration
+ */
 export const LogPrefix = {
     FATAL: chalk.redBright.bold("[fatal]"),
     ERROR: chalk.red.bold("[error]"),

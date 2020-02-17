@@ -1,24 +1,19 @@
-/**
- * @packageDocumentation
- * @module Thread
- */
-
 import { spawn, ChildProcessWithoutNullStreams } from "child_process";
 import cliCursor from "cli-cursor";
 import killPort from "kill-port";
 
-import { Config } from "../interfaces";
+import { Config } from "../../interfaces";
 
-import Provider from "./Provider";
+import Provider from "../higher-order/Provider";
 
-import { clearScreen } from "../utils";
+import { clearScreen } from "../../utils";
 
 /**
  * Handles the cleanup and restart of the command executer.
  *
  * Kills the spawned process, kills the process running on the port to avoid conflicts and restarts a clean process.
- * @param {boolean} initial Determines if this is the first time the process is running.
- * @param {boolean} restart Determines if the process should restart after cleanup.
+ * @extends Provider
+ * @category Core
  */
 export default class Thread extends Provider {
     /**

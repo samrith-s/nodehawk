@@ -1,14 +1,10 @@
-/**
- * @moduledefinition
- * @module Display
- */
-
 import Spinner, { Ora } from "ora";
 
-import { Config } from "../interfaces";
+import { Config } from "../../interfaces";
 
 /**
  * The Display class is the primary class responsible for providing spinner visualisations.
+ * @category Higher Order
  */
 export default class Display {
     /**
@@ -27,7 +23,7 @@ export default class Display {
     private started = false;
 
     /**
-     * Create an instance of `Display`
+     * Create an instance of `Display` to handle all messages broadcasted on the terminal.
      * @param {Config} config The confguration object.
      */
     constructor(config: Config) {

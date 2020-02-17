@@ -33,6 +33,7 @@ for the icon.
     -   [Display](#display)
     -   [Process](#process)
 -   [Examples](#examples)
+-   [Roadmap](#roadmap)
 -   [Contributors](#contributors)
 
 ## Why Nodehawk?
@@ -160,6 +161,12 @@ directory.
 
 -   [Express Javascript Server](https://github.com/samrith-s/nodehawk/tree/master/examples/express-javascript)
 -   [Express Typescript Server](https://github.com/samrith-s/nodehawk/tree/master/examples/express-typescript)
+
+## Roadmap
+
+-   Integrate ability to add watcher listeners while using the package as an
+    API.
+-   Integrate actions for automatic publishing.
 
 ## Contributors
 

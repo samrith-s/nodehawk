@@ -1,8 +1,3 @@
-/**
- * @packageDocumentation
- * @module Watcher
- */
-
 import Chokidar, { FSWatcher } from "chokidar";
 import path from "path";
 
@@ -11,15 +6,17 @@ import {
     WatcherEvent,
     WatcherEvents,
     WatcherListeners
-} from "../interfaces";
+} from "../../interfaces";
 
-import Provider from "./Provider";
+import Provider from "../higher-order/Provider";
 import Thread from "./Thread";
 
-import { generateBasePathRelativeToRoot } from "../utils";
+import { generateBasePathRelativeToRoot } from "../../utils";
 
 /**
  * The base watcher class, that handles all file watches and fires events accordingly.
+ * @extends Provider
+ * @category Core
  */
 export default class Watcher extends Provider {
     /**

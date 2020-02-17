@@ -1,15 +1,11 @@
-/**
- * @packageDocumentation
- * @module Provider
- */
-
-import { Config } from "../interfaces";
+import { Config } from "../../interfaces";
 
 import Logger from "./Logger";
 import Display from "./Display";
 
 /**
- * The base provider class that all other classes extend from. This helps to share the configuration, loggers and spinners.
+ * The base provider class that all other classes extend from. This helps to share the configuration, loggers and displays.
+ * @category Higher Order
  */
 export default abstract class Provider {
     /**

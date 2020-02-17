@@ -1,14 +1,5 @@
-/**
- * The primary class which triggers the instatiation of all other classes.
- *
- * @packageDocumentation
- * @module Main
- * @preferred
- * @extends Provider
- */
-
 import Watcher from "./Watcher";
-import Provider from "./Provider";
+import Provider from "../higher-order/Provider";
 
 import { Config, ConfigCheck, WatcherListeners } from "interfaces";
 
@@ -17,10 +8,12 @@ import {
     checkConfig,
     assignEnvironmentVariables,
     clearScreen
-} from "../utils";
+} from "../../utils";
 
 /**
  * Nodehawk is a hyper configurable watcher for all of your Node server development needs.
+ * @extends Provider
+ * @category Core
  * @example
  * ```
  * import Nodehawk from 'nodehawk';

@@ -20,6 +20,8 @@ import DEFAULT_CONFIG from "./default-config";
 
 /**
  * Loads a configuration object. Merging .nodehawkrc (if it exists) and the default configuration file. Otherwise returns the default configuration.
+ * @module Utils
+ * @category Core
  */
 export function loadConfiguration(): Config {
     const defaultConfig: Config = unflatten(
@@ -41,6 +43,7 @@ export function loadConfiguration(): Config {
 /**
  * Checks whether the configuration object types match the ones expected.
  * @param {Config} config The configuration object to check.
+ * @category Core
  */
 export function checkConfig(config: Config): ConfigCheck {
     const configFlat: ConfigFlat = flatten(config, {
@@ -101,6 +104,7 @@ export function checkConfig(config: Config): ConfigCheck {
  *
  * @param {string} root A path string resolving to the root directory.
  * @param {(string|string[])} paths A string or an array of paths to resolve with respect to root.
+ * @category Core
  */
 export function generateBasePathRelativeToRoot(
     root: string,
@@ -121,6 +125,7 @@ export function generateBasePathRelativeToRoot(
 
 /**
  * Clears the terminal screen.
+ * @category Utils
  */
 export function clearScreen(): void {
     const blank = "\n".repeat(process.stdout.rows);
@@ -132,6 +137,7 @@ export function clearScreen(): void {
 /**
  * Resolve the type from string, used to validate configuration object.
  * @param {any} value Value of the key of configuration object.
+ * @category Utils
  */
 function resolveTypeof(value: any): string {
     if (Array.isArray(value)) {
@@ -152,6 +158,7 @@ function resolveTypeof(value: any): string {
 /**
  * Assign environemnt variables from the configuration to the process.
  * @param {Config} config The configuration object.
+ * @category Core
  */
 export function assignEnvironmentVariables(config: Config): void {
     process.env.PORT = config.port.toString();

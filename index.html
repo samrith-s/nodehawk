@@ -67,14 +67,11 @@
 					<h1>Nodehawk</h1>
 				</a>
 				<blockquote>
-					<p>⚠️ This is still under active development and by no means complete. Please do
-					not use this package as of now.</p>
+					<p>⚠️ This package is still in beta, and it requires your help in testing it out!</p>
 				</blockquote>
 				<p>Nodehawk is a watcher for your Node server, without a lot of overheads. It
 					observes your directories and files for changes, and triggers rebuilds to make
 				Node application developments hassle-free. Supports every NodeJS framework.</p>
-				<p>Nodehawk is a self-contained package, and does not require any additional
-				dependencies to run. Just run <code>nodehawk</code> in your project folder.</p>
 				<p>This project is inspired by the fantastic
 					<a href="https://nodemon.io?utm_source=nodehawk&amp;utm_medium=github&amp;utm_campaign=nodehawk-freepik-referral">Nodemon</a>
 					and uses
@@ -82,8 +79,8 @@
 					under the hood. Thanks to
 					<a href="https://www.freepik.com?utm_source=nodehawk&amp;utm_medium=github&amp;utm_campaign=nodehawk-freepik-referral">Freepik</a>
 				for the icon.</p>
-				<p><img src="https://img.shields.io/npm/v/nodehawk?label=Nodehawk" alt="npm">
-					<a href="https://travis-ci.com/samrith-s/nodehawk"><img src="https://travis-ci.com/samrith-s/nodehawk.svg?branch=master" alt="Build Status"></a><!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+				<p><a href="https://www.npmjs.com/package/nodehawk"><img src="https://img.shields.io/npm/v/nodehawk?label=Package" alt="npm"></a>
+					<a href="https://github.com/samrith-s/nodehawk/actions?query=workflow%3ABuild"><img src="https://github.com/samrith-s/nodehawk/workflows/Build/badge.svg" alt="Build"></a><!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 				<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat" alt="All Contributors"></a></p>
 				<!-- ALL-CONTRIBUTORS-BADGE:END -->
 				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
@@ -91,7 +88,8 @@
 				</a>
 				<ul>
 					<li><a href="#why-nodehawk">Why Nodehawk?</a></li>
-					<li><a href="#installation-and-usage">Installation and usage</a></li>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#usage">Usage</a></li>
 					<li><a href="#configurations">Configurations</a><ul>
 							<li><a href="#basic">Basic</a></li>
 							<li><a href="#performance">Performance</a></li>
@@ -113,19 +111,30 @@
 					make development of Node servers less cumbersome. It primarily focuses on
 					providing a watcher that addresses
 				<a href="https://stackoverflow.com/questions/4075287/node-express-eaddrinuse-address-already-in-use-kill-server">issues around watching and restarting</a>.</p>
-				<a href="#installation-and-usage" id="installation-and-usage" style="color: inherit; text-decoration: none;">
-					<h2>Installation and usage</h2>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
 				</a>
 				<p>There are two ways to use this. Either install it globally or add it as a
 				development dependency.</p>
-				<p>Installing globally using NPML</p>
-				<pre><code class="language-bash">npm i -g nodehawk</code></pre>
-				<p>or with Yarn:</p>
-				<pre><code class="language-bash">yarn global add global nodehawk</code></pre>
-				<p>Adding the package as a dev dependency to your project with NPM:</p>
-				<pre><code class="language-bash">npm i -D nodehawk</code></pre>
-				<p>or with Yarn:</p>
-				<pre><code class="language-bash">yarn add -D nodehawk</code></pre>
+				<ul>
+					<li>Installing globally:</li>
+				</ul>
+				<pre><code class="language-bash"><span class="hljs-comment"># with npm</span>
+npm i -g nodehawk
+
+<span class="hljs-comment"># with yarn</span>
+yarn global add global nodehawk</code></pre>
+				<ul>
+					<li>Adding the package as a dev dependency to your project:</li>
+				</ul>
+				<pre><code class="language-bash"><span class="hljs-comment"># with npm</span>
+npm i -D nodehawk
+
+<span class="hljs-comment"># with yarn</span>
+yarn add -D nodehawk</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
 				<p>For using the watcher, simple add a script to your <code>package.json</code>:</p>
 				<pre><code class="language-json">{
     <span class="hljs-attr">"scripts"</span>: {
@@ -136,12 +145,17 @@
 					<p><strong>IMPORTANT:</strong> Nodehawk will by default pass a <code>process.env.PORT</code> to your
 					process. Use it to run your app on that port. All you need to do is:</p>
 				</blockquote>
-				<pre><code class="language-diff"><span class="hljs-deletion">- server.listen(&lt;your-existing-port&gt;);</span>
-<span class="hljs-addition">+ server.listen(process.env.PORT);</span></code></pre>
+				<pre><code class="language-diff"><span class="hljs-deletion">- app.listen(&lt;your-existing-port&gt;);</span>
+<span class="hljs-addition">+ app.listen(process.env.PORT);</span></code></pre>
 				<blockquote>
 					<p>This will help Nodehawk kill the process running on the port to prevent any
 					<code>EADDRINUSE</code> errors. You can customize the port in the configurations below.</p>
 				</blockquote>
+				<p><strong>You need to provide an exec command in a <code>.nodehawkrc</code> file. The simplest one
+				for your server can be:</strong></p>
+				<pre><code class="language-json">{
+    <span class="hljs-attr">"exec"</span>: <span class="hljs-string">"node src/server"</span>
+}</code></pre>
 				<p>The watcher will run with the default configurations, and automatically start
 					watching your <code>src</code> directory. If you want to customize it further, you can read
 					the whole list of configurations, which can be specified in a <code>.nodehawkrc</code> file
@@ -209,8 +223,14 @@
 					<tbody><tr>
 							<td>buffer</td>
 							<td>number</td>
-							<td><code>300</code></td>
-							<td>Buffer delay in milliseconds to wait for events after which the <code>exec</code> command should be trigger.</td>
+							<td><code>1500</code></td>
+							<td>Buffer to wait for events after which the <code>exec</code> command should be trigger.</td>
+						</tr>
+						<tr>
+							<td>bufferPoll</td>
+							<td>number</td>
+							<td><code>100</code></td>
+							<td>Poll to check the stability of the buffer.</td>
 						</tr>
 						<tr>
 							<td>ignored</td>
@@ -287,6 +307,8 @@
 							<td>Key value pairs to be assigned to <code>process.env</code>.</td>
 						</tr>
 				</tbody></table>
+				<p>The complete API documentation is
+				<a href="https://samrith-s.github.io/nodehawk/">available on the website</a>.</p>
 				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
 					<h2>Examples</h2>
 				</a>

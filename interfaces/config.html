@@ -80,7 +80,8 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#_" class="tsd-kind-icon">_</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#bufferinterval" class="tsd-kind-icon">buffer<wbr>Interval</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#buffer" class="tsd-kind-icon">buffer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#bufferpoll" class="tsd-kind-icon">buffer<wbr>Poll</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#clearscreen" class="tsd-kind-icon">clear<wbr>Screen</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#config-1" class="tsd-kind-icon">config</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#configs" class="tsd-kind-icon">configs</a></li>
@@ -91,6 +92,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#loglevel" class="tsd-kind-icon">log<wbr>Level</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#paths" class="tsd-kind-icon">paths</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#port" class="tsd-kind-icon">port</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#r" class="tsd-kind-icon">r</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="config.html#root" class="tsd-kind-icon">root</a></li>
 							</ul>
 						</section>
@@ -102,27 +104,30 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="_" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> _</h3>
-					<div class="tsd-signature tsd-kind-icon">_<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<div class="tsd-signature tsd-kind-icon">_<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L33">interfaces.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L34">interfaces.ts:34</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>These values have been added in the config to avoid our config validation failing.
-								They are attached to the config by the <code>rc</code> package, which is used to load a merged
-							version of .nodehawkrc and default config.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="bufferinterval" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> buffer<wbr>Interval</h3>
-					<div class="tsd-signature tsd-kind-icon">buffer<wbr>Interval<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="buffer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> buffer</h3>
+					<div class="tsd-signature tsd-kind-icon">buffer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L16">interfaces.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L15">interfaces.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="bufferpoll" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> buffer<wbr>Poll</h3>
+					<div class="tsd-signature tsd-kind-icon">buffer<wbr>Poll<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L16">interfaces.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -132,7 +137,7 @@
 					<div class="tsd-signature tsd-kind-icon">clear<wbr>Screen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L17">interfaces.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L17">interfaces.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -142,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L34">interfaces.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L35">interfaces.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -152,7 +157,7 @@
 					<div class="tsd-signature tsd-kind-icon">configs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L35">interfaces.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L36">interfaces.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -162,7 +167,7 @@
 					<div class="tsd-signature tsd-kind-icon">display<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>onBeforeRestart<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>onBeforeStart<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>onBeforeStop<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>onRestart<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>onStart<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L18">interfaces.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L18">interfaces.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -192,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L25">interfaces.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L25">interfaces.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -210,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">exec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L12">interfaces.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L11">interfaces.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">ignored<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L14">interfaces.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L13">interfaces.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +235,7 @@
 					<div class="tsd-signature tsd-kind-icon">log<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L15">interfaces.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L14">interfaces.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">paths<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L10">interfaces.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L9">interfaces.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,9 +255,26 @@
 					<div class="tsd-signature tsd-kind-icon">port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L13">interfaces.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L12">interfaces.ts:12</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="r" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> r</h3>
+					<div class="tsd-signature tsd-kind-icon">r<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L33">interfaces.ts:33</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>These values have been added in the config to avoid our config validation failing.
+								They are attached to the config by the <code>rc</code> package, which is used to load a merged
+							version of <code>.nodehawkrc</code> and default config.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="root" class="tsd-anchor"></a>
@@ -260,7 +282,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/samrith-s/watchnode/blob/4ddc565/src/interfaces.ts#L11">interfaces.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/samrith-s/nodehawk/blob/74e741f/src/interfaces.ts#L10">interfaces.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -309,7 +331,10 @@
 								<a href="config.html#_" class="tsd-kind-icon">_</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="config.html#bufferinterval" class="tsd-kind-icon">buffer<wbr>Interval</a>
+								<a href="config.html#buffer" class="tsd-kind-icon">buffer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="config.html#bufferpoll" class="tsd-kind-icon">buffer<wbr>Poll</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="config.html#clearscreen" class="tsd-kind-icon">clear<wbr>Screen</a>
@@ -340,6 +365,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="config.html#port" class="tsd-kind-icon">port</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="config.html#r" class="tsd-kind-icon">r</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="config.html#root" class="tsd-kind-icon">root</a>

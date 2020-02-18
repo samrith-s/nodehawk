@@ -17,11 +17,16 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: yarn install
-            - name: Build package
-              run: yarn build
-              env:
-                  CI: true
+ 
             - name: Test package
               run: yarn test
               env:
                   CI: true
+
+            - name: Build package
+              run: yarn build
+              env:
+                  CI: true
+          
+            - name: Generate & deploy docs
+              run: yarn docs:deploy

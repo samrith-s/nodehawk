@@ -27,6 +27,3 @@ jobs:
               run: yarn build
               env:
                   CI: true
-          
-            - name: Generate & deploy docs
-              run: yarn docs:deploy

@@ -1,4 +1,4 @@
-name: Publish package
+name: Publish
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
+    - name: Installing dependencies
       run: yarn install
     
     - uses: primer/publish@master

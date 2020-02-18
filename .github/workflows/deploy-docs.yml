@@ -1,4 +1,4 @@
-name: Generate and deploy docs
+name: Docs
 
 on:
   push:
@@ -24,13 +24,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+      - name: Installing dependencies
         run: yarn install
 
-      - name: Generate docs
+      - name: Generating docs
         run: yarn docs:generate
 
-      - name: Deploy docs
+      - name: Deploying docs
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}

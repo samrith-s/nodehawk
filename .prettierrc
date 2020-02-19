@@ -7,7 +7,7 @@
   "useTabs": false,
   "overrides": [
     {
-      "files": ["*.yml", "*rc", "*.json"],
+      "files": ["*.yml", "*.yaml", "*rc", "*.json"],
       "options": {
         "tabWidth": 2,
         "useTabs": false

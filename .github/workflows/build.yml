@@ -9,7 +9,45 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Installing dependencies
+        run: yarn install
+
+      - name: Testing package
+        run: yarn test
+        env:
+          CI: true
+
+  lint:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Installing dependencies
+        run: yarn install
+
+      - name: Linting package
+        run: yarn lint
+        env:
+          CI: true
+
   build:
+    needs: [test, lint]
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,6 +56,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -26,8 +65,55 @@ jobs:
       - name: Installing dependencies
         run: yarn install
 
-      - name: Building package
-        run: yarn build
+      - name: Linting package
+        run: yarn lint
         env:
-          NODE_ENV: production
           CI: true
+
+  deploy:
+    needs: build
+    if: github.event_action == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - run: yarn install
+
+      - name: Generating docs
+        run: yarn docs:generate
+
+      - name: Deploying docs
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs
+
+  publish:
+    needs: build
+    if: github.event_action == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+
+      - run: yarn install
+
+      - uses: primer/publish@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

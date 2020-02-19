@@ -1,6 +1,6 @@
 {
   "name": "nodehawk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A slim and hyper configurable watcher for Node.",
   "author": "Samrith Shankar <samrith.shankar@outlook.com>",
   "license": "MIT",

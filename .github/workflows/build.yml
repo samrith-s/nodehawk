@@ -132,7 +132,9 @@ jobs:
 
       - run: yarn install
 
-      - uses: primer/publish@master
+      - run: yarn build
+
+      - uses: primer/publish@v2.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

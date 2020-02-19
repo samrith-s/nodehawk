@@ -7,6 +7,10 @@ on:
   pull_request:
     branches:
       - master
+  release:
+    types: [published]
+    branches:
+      - master
 
 jobs:
   test:
@@ -94,7 +98,7 @@ jobs:
 
   docs:
     needs: build
-    if: github.event_name == 'push'
+    if: github.event_name == 'release'
     runs-on: ubuntu-latest
 
     steps:
@@ -120,7 +124,7 @@ jobs:
 
   publish:
     needs: build
-    if: github.event_name == 'push'
+    if: github.event_name == 'release'
     runs-on: ubuntu-latest
 
     steps:

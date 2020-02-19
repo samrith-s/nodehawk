@@ -1,6 +1,17 @@
 {
-    "printWidth": 80,
-    "singleQuote": false,
-    "semi": true,
-    "proseWrap": "always"
+  "printWidth": 80,
+  "singleQuote": false,
+  "semi": true,
+  "proseWrap": "always",
+  "tabWidth": 4,
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": ["*.yml", "*rc", "*.json"],
+      "options": {
+        "tabWidth": 2,
+        "useTabs": false
+      }
+    }
+  ]
 }

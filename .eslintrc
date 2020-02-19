@@ -1,21 +1,21 @@
 {
-    "extends": ["plugin:@typescript-eslint/recommended"],
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "prettier"],
-    "settings": {
-        "import/parsers": {
-            "@typescript-eslint/parser": [".ts", ".tsx"]
-        },
-        "import/resolver": {
-            "typescript": {}
-        }
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
-    "rules": {
-        "import/no-extraneous-dependencies": [
-            0,
-            { "devDependencies": ["**/test.tsx", "**/test.ts"] }
-        ],
-        "@typescript-eslint/indent": [2, 4],
-        "@typescript-eslint/no-explicit-any": 0
+    "import/resolver": {
+      "typescript": {}
     }
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      0,
+      { "devDependencies": ["**/test.tsx", "**/test.ts"] }
+    ],
+    "@typescript-eslint/indent": 2,
+    "@typescript-eslint/no-explicit-any": 0
+  }
 }

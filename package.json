@@ -41,7 +41,7 @@
     "coverage": "nyc --reporter=lcovonly yarn test",
     "refresh": "rimraf ./node_modules ./yarn.lock && yarn install",
     "lint": "eslint src/**/*.ts",
-    "docs:generate": "typedoc ./src",
+    "docs:generate": "typedoc ./src && cp CNAME docs/CNAME",
     "docs:serve": "live-server ./docs"
   },
   "devDependencies": {

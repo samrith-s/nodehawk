@@ -34,6 +34,7 @@ for the icon.
     -   [Process](#process)
 -   [Examples](#examples)
 -   [Roadmap](#roadmap)
+-   [Contributing](https://github.com/samrith-s/nodehawk/blob/master/CONTRIBUTING.md)
 -   [Contributors](#contributors)
 
 ## Why Nodehawk?

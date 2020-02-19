@@ -46,7 +46,7 @@
     "devDependencies": {
         "@types/chai": "4.2.9",
         "@types/mocha": "7.0.1",
-        "@types/node": "13.1.4",
+        "@types/node": "13.7.2",
         "@typescript-eslint/eslint-plugin": "2.15.0",
         "@typescript-eslint/parser": "2.15.0",
         "all-contributors-cli": "6.13.0",

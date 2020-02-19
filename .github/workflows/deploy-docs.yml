@@ -2,14 +2,13 @@ name: Docs
 
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [10.x]

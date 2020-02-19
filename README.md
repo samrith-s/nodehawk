@@ -8,7 +8,7 @@ Nodehawk is a watcher for your Node server, without a lot of overheads. It
 observes your directories and files for changes, and triggers rebuilds to make
 Node application developments hassle-free. Supports every NodeJS framework.
 
-TO check the progress, do check out our
+To check the progress, do check out our
 [weekly digest](https://github.com/samrith-s/nodehawk/issues?q=is:open+is:issue+label:weekly-digest)!
 
 This project is inspired by the fantastic

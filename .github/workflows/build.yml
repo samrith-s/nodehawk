@@ -65,13 +65,13 @@ jobs:
       - name: Installing dependencies
         run: yarn install
 
-      - name: Linting package
-        run: yarn lint
+      - name: Building package
+        run: yarn build
         env:
           CI: true
 
-  deploy:
-    needs: build
+  docs:
+    needs: [build (10.x), build (11.x), build (12.x), build (13.x)]
     if: github.event_action == 'push'
     runs-on: ubuntu-latest
 
@@ -98,7 +98,7 @@ jobs:
           FOLDER: docs
 
   publish:
-    needs: build
+    needs: docs
     if: github.event_action == 'push'
     runs-on: ubuntu-latest
 

@@ -8,6 +8,9 @@ Nodehawk is a watcher for your Node server, without a lot of overheads. It
 observes your directories and files for changes, and triggers rebuilds to make
 Node application developments hassle-free. Supports every NodeJS framework.
 
+TO check the progress, do check out our
+[weekly digest](https://github.com/samrith-s/nodehawk/issues?q=is:open+is:issue+label:weekly-digest)!
+
 This project is inspired by the fantastic
 [Nodemon](https://nodemon.io?utm_source=nodehawk&utm_medium=github&utm_campaign=nodehawk-freepik-referral)
 and uses
@@ -17,7 +20,8 @@ under the hood. Thanks to
 for the icon.
 
 [![npm](https://img.shields.io/npm/v/nodehawk?label=Package)](https://www.npmjs.com/package/nodehawk)
-[![Build](https://github.com/samrith-s/nodehawk/workflows/Build/badge.svg)](https://github.com/samrith-s/nodehawk/actions?query=workflow%3ABuild)[![Coverage Status](https://coveralls.io/repos/github/samrith-s/nodehawk/badge.svg?branch=master)](https://coveralls.io/github/samrith-s/nodehawk?branch=master)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![Build](https://github.com/samrith-s/nodehawk/workflows/Build/badge.svg)](https://github.com/samrith-s/nodehawk/actions?query=workflow%3ABuild)
+[![Coverage Status](https://coveralls.io/repos/github/samrith-s/nodehawk/badge.svg?branch=master)](https://coveralls.io/github/samrith-s/nodehawk?branch=master)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->

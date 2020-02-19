@@ -156,7 +156,7 @@ of these configurations are provided through a `.nodehawkrc` file.
 | env | object | `{}`    | Key value pairs to be assigned to `process.env`. |
 
 The complete API documentation is
-[available on the website](https://samrith-s.github.io/nodehawk/globals.html).
+[available on the website](https://nodehawk.js.org/).
 
 ## Examples
 

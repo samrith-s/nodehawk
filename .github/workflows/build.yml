@@ -70,11 +70,9 @@ jobs:
         env:
           CI: true
 
-      - run: echo ${{ github.event_action }}
-
   docs:
     needs: build
-    if: github.event_action == 'push'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -100,7 +98,7 @@ jobs:
 
   publish:
     needs: docs
-    if: github.event_action == 'push'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:

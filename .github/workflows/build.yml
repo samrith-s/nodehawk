@@ -70,15 +70,16 @@ jobs:
         env:
           CI: true
 
+      - run: echo ${{ github.event_action }}
+
   docs:
-    needs: [build (10.x), build (11.x), build (12.x), build (13.x)]
+    needs: build
     if: github.event_action == 'push'
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.client_payload.ref }}
           persist-credentials: false
 
       - uses: actions/setup-node@v1
@@ -104,8 +105,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.client_payload.ref }}
 
       - uses: actions/setup-node@v1
         with:

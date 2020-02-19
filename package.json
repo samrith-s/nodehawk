@@ -41,8 +41,7 @@
         "refresh": "rimraf ./node_modules ./yarn.lock && yarn install",
         "lint": "eslint src/**/*.ts",
         "docs:generate": "typedoc ./src",
-        "docs:serve": "live-server ./docs",
-        "docs:deploy": "yarn docs:generate && gh-pages -d ./docs"
+        "docs:serve": "live-server ./docs"
     },
     "devDependencies": {
         "@types/chai": "^4.2.9",
@@ -58,7 +57,6 @@
         "eslint-plugin-import": "^2.19.1",
         "eslint-plugin-json": "^2.0.1",
         "eslint-plugin-prettier": "^3.1.2",
-        "gh-pages": "^2.2.0",
         "live-server": "^1.2.1",
         "mocha": "^7.0.1",
         "prettier": "^1.19.1",

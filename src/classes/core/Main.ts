@@ -36,7 +36,9 @@ export default class Main extends Provider {
 
         const {
             config: configPath,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             configs: configsPath,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             _,
             ...config
         } = loadConfiguration();

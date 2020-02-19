@@ -27,8 +27,31 @@ jobs:
         env:
           CI: true
 
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Installing dependencies
+        run: yarn install
+
+      - name: Generate coverage
+        run: yarn coverage
+        env:
+          CI: true
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+
   lint:
-    needs: test
+    needs: coverage
     runs-on: ubuntu-latest
 
     steps:
@@ -47,7 +70,7 @@ jobs:
           CI: true
 
   build:
-    needs: [test, lint]
+    needs: lint
     runs-on: ubuntu-latest
 
     strategy:
@@ -97,7 +120,7 @@ jobs:
           FOLDER: docs
 
   publish:
-    needs: docs
+    needs: build
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
 

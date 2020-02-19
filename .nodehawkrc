@@ -1,9 +1,9 @@
 {
-    "paths": ["src", "docs"],
-    "port": 5000,
-    "exec": "echo \"Hello world!\"",
-    "logLevel": 4,
-    "env": {
-        "HELLO_WORLD": 10101
-    }
+  "paths": ["src", "docs"],
+  "port": 5000,
+  "exec": "echo \"Hello world!\"",
+  "logLevel": 4,
+  "env": {
+    "HELLO_WORLD": 10101
+  }
 }

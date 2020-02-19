@@ -9,15 +9,54 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Installing dependencies
+        run: yarn install
+
+      - name: Testing package
+        run: yarn test
+        env:
+          CI: true
+
+  lint:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Installing dependencies
+        run: yarn install
+
+      - name: Linting package
+        run: yarn lint
+        env:
+          CI: true
+
   build:
+    needs: [test, lint]
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [10.x, 11.x, 12.x, 13.x]
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -29,5 +68,49 @@ jobs:
       - name: Building package
         run: yarn build
         env:
-          NODE_ENV: production
           CI: true
+
+  docs:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - run: yarn install
+
+      - name: Generating docs
+        run: yarn docs:generate
+
+      - name: Deploying docs
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs
+
+  publish:
+    needs: docs
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+
+      - run: yarn install
+
+      - uses: primer/publish@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

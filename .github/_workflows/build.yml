@@ -1,6 +1,12 @@
-name: Test
+name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
@@ -8,11 +14,10 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [10.x, 11.x, 12.x, 13.x]
 
     steps:
       - uses: actions/checkout@v2
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -21,7 +26,8 @@ jobs:
       - name: Installing dependencies
         run: yarn install
 
-      - name: Testing package
-        run: yarn test
+      - name: Building package
+        run: yarn build
         env:
+          NODE_ENV: production
           CI: true

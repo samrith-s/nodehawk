@@ -2,7 +2,7 @@
 
 # Nodehawk
 
-> ⚠️ This package is still in beta, and it requires your help in testing it out!
+> **🗣 This project is actively looking for contributors like you!**
 
 Nodehawk is a watcher for your Node server, without a lot of overheads. It
 observes your directories and files for changes, and triggers rebuilds to make

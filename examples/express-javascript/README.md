@@ -9,10 +9,10 @@ watching for changes, is very simple.
 yarn add express
 ```
 
--   Install Babel dependencies
+-   Install development dependencies
 
 ```bash
-yarn add -D @babel/core @babel/node @babel/preset-env @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread @babel/plugin-syntax-dynamic-import babel-plugin-transform-async-to-promises
+yarn add -D nodehawk @babel/core @babel/node @babel/preset-env @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread @babel/plugin-syntax-dynamic-import babel-plugin-transform-async-to-promises
 ```
 
 -   Create a `.babelrc` in your project root.

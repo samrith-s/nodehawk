@@ -156,7 +156,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/steup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: 13.x
           registry-url: https://npm.pkg.github.com/

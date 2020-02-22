@@ -71,6 +71,6 @@ app.listen(process.env.PORT, () => {
 yarn start
 ```
 
-And, voila! Your Express server with the latest ES support is up and running!
-You can make any changes and hit save, and check your terminal. Nodehawk will
-promptly restart the process to reflect your changes!
+Et voila! Your Express server with the latest ES support is up and running. You
+can make any changes and hit save, and check your terminal. Nodehawk will
+promptly restart the process to reflect your changes.
